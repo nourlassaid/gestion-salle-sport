@@ -1,0 +1,23 @@
+<div class="login-container">
+  <div class="login-image">
+    <img src="../assets/" alt="Train harder">
+  </div>
+  <div class="login-form">
+    <h2>StressLess</h2>
+    <p>Welcome back! Log in to your account.</p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label>Email address</label>
+      <input formControlName="email" type="email" placeholder="Enter your email" required />
+
+      <label>Password</label>
+      <input formControlName="password" type="password" placeholder="Enter your password" required />
+
+      <div class="remember-me">
+        <input type="checkbox" id="remember" />
+        <label for="remember">Remember me</label>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>

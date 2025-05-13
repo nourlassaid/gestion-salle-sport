@@ -1,0 +1,91 @@
+<div class="topbar">
+    <div class="logo">
+      <span class="bold">POWER GYM</span><span class="light">NEFTA</span>
+    </div>
+    <div class="search-container">
+      <input type="text" placeholder="Rechercher..." />
+      <i class="search-icon">🔍</i>
+    </div>
+  </div>
+  
+  <div class="dashboard-container">
+    <nav class="sidebar">
+      <div class="logo">
+        POWER<span class="light">GYM NEFTA</span>
+      </div>
+  
+      <div class="section">
+        <div class="section-title">PRINCIPAL</div>
+        <ul>
+          <li><a routerLink="/admin/dashboard">🏠 Tableau de bord</a></li>
+        </ul>
+      </div>
+  
+      <div class="section">
+        <div class="section-title">PERSONNES</div>
+  
+        <ul>
+          <li>
+            👤 <strong>Membres</strong>
+            <ul>
+              <li><a routerLink="/members/add">Ajouter un membre</a></li>
+              <li><a routerLink="/members/list">Afficher / Modifier les membres</a></li>
+              <li><a routerLink="/members/bmi/add">Ajouter un IMC</a></li>
+              <li><a routerLink="/members/bmi/show">Afficher les IMC</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            🧑‍🏫 <strong>Coachs</strong>
+            <ul>
+              <li><a routerLink="/coaches/add">Ajouter un coach</a></li>
+              <li><a routerLink="/coaches/list">Afficher / Modifier les coachs</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            🧑‍💼 <strong>Réceptionnistes</strong>
+            <ul>
+              <li><a routerLink="/receptions/add">Ajouter une réceptionniste</a></li>
+              <li><a routerLink="/receptions/list">Afficher / Modifier les réceptionnistes</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            📋 <strong>Abonnements</strong>
+            <ul>
+              <li><a routerLink="/subscriptions/add">Ajouter un abonnement</a></li>
+              <li><a routerLink="/subscriptions/list">Afficher / Modifier les abonnements</a></li>
+              <li><a routerLink="/subscriptions/type/add">Ajouter un type d’abonnement</a></li>
+              <li><a routerLink="/subscriptions/type/list">Afficher / Modifier les types</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            🏋️ <strong>Activités</strong>
+            <ul>
+              <li><a routerLink="/activities/add">Ajouter une activité</a></li>
+              <li><a routerLink="/activities/list">Afficher / Modifier les activités</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            📅 <strong>Planning</strong>
+            <ul>
+              <li><a routerLink="/planning/add">Ajouter un planning</a></li>
+              <li><a routerLink="/planning/list">Afficher / Modifier le planning</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            🚪 <a (click)="logout()">Se déconnecter</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

@@ -1,0 +1,56 @@
+<div class="topbar">
+  <div class="logo flex items-center gap-2">
+    <!-- Logo image -->
+    <img src="assets/logo.png" alt="Logo" class="h-8 w-8 object-contain" />
+    
+    <!-- Nom de la salle -->
+    <span class="bold text-yellow-400">POWER GYM NEFTA</span>
+  </div>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search item..." />
+    <i class="search-icon">🔍</i>
+  </div>
+</div>
+
+<div class="members-list-container">
+    <div class="header">
+      <h2>MEMBERS LIST</h2>
+      <div class="actions">
+        <a routerLink="/members/add" class="btn-add">➕ Add</a>
+        <button class="btn-print" (click)="print()">🖨️ Print</button>
+        <button class="btn-export" (click)="exportExcel()">📥 Excel</button>
+        <button class="btn-export" (click)="exportPDF()">📄 PDF</button>
+      </div>
+    </div>
+
+
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of members">
+            <td>{{ member.nom }} {{ member.prenom }}</td>
+            <td>{{ member.telephone }}</td>
+            <td>{{ member.date_inscription }}</td>
+            <td>{{ member.prix }} DT</td>
+            <td>
+              <button class="btn-view" (click)="view(member)">View</button>
+              <button class="btn-edit" (click)="edit(member)">Edit</button>
+              <button class="btn-delete" (click)="delete(member.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
