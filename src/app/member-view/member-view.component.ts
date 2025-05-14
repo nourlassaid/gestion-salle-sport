@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MemberService } from '../services/member.service'; // Corrigé : chemin correct
+import { MemberService } from '../services/member.service';
 import { Member } from '../models/Member.model';
 
 @Component({
@@ -17,10 +17,18 @@ export class MemberViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.memberService.getMember(+id).subscribe((data: Member) => {
-        this.member = data;
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const id = idParam ? Number(idParam) : null;
+
+    if (id !== null && !isNaN(id)) {
+      this.memberService.getMember(id).subscribe({
+        next: (data: Member) => {
+          this.member = data;
+        },
+        error: () => {
+          console.error('Erreur lors de la récupération du membre');
+          this.member = null;
+        }
       });
     }
   }

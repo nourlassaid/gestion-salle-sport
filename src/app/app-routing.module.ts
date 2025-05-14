@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AddMemberComponent } from './add-member/add-member.component';
 import { MembersListComponent } from './members-list/members-list.component'; // ✅ Garder uniquement ce bon chemin
 import { MemberViewComponent } from './member-view/member-view.component';
+import { SearchResultsComponent } from './members/search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'members/add', component: AddMemberComponent },
   { path: 'members/list', component: MembersListComponent },
   { path: 'members/view/:id', component: MemberViewComponent },
+{ path: 'search', component: SearchResultsComponent },
 
 ];
 

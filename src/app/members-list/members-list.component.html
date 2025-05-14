@@ -1,35 +1,35 @@
 <div class="topbar">
   <div class="logo flex items-center gap-2">
-    <!-- Logo image -->
     <img src="assets/logo.png" alt="Logo" class="h-8 w-8 object-contain" />
-    
-    <!-- Nom de la salle -->
     <span class="bold text-yellow-400">POWER GYM NEFTA</span>
   </div>
 
   <div class="search-container">
-    <input type="text" placeholder="Search item..." />
+<input type="text" placeholder="Search item..." [(ngModel)]="searchQuery" (input)="onSearchChange()" />
     <i class="search-icon">🔍</i>
   </div>
 </div>
 
 <div class="members-list-container">
-    <div class="header">
-      <h2>MEMBERS LIST</h2>
-      <div class="actions">
-        <a routerLink="/members/add" class="btn-add">➕ Add</a>
-        <button class="btn-print" (click)="print()">🖨️ Print</button>
-        <button class="btn-export" (click)="exportExcel()">📥 Excel</button>
-        <button class="btn-export" (click)="exportPDF()">📄 PDF</button>
-      </div>
+  <div class="header">
+    <h2>MEMBERS LIST</h2>
+    <div class="actions">
+      <a routerLink="/members/add" class="btn-add">➕ Add</a>
+      <button class="btn-print" (click)="print()">🖨️ Print</button>
+      <button class="btn-export" (click)="exportExcel()">📥 Excel</button>
+      <button class="btn-export" (click)="exportPDF()">📄 PDF</button>
     </div>
+  </div>
 
+  <!-- Affichage par mois -->
+  <div *ngFor="let month of groupedMembers | keyvalue: sortByMonth" class="monthly-section">
+    <h3 class="text-xl font-bold text-yellow-500 my-4">{{ month.key }}</h3>
 
-    
     <div class="table-container">
       <table>
         <thead>
           <tr>
+            <th>N°</th>
             <th>Name</th>
             <th>Phone</th>
             <th>Date</th>
@@ -38,7 +38,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let member of members">
+          <tr *ngFor="let member of month.value; let i = index">
+            <td>{{ i + 1 }}</td>
             <td>{{ member.nom }} {{ member.prenom }}</td>
             <td>{{ member.telephone }}</td>
             <td>{{ member.date_inscription }}</td>
@@ -46,11 +47,11 @@
             <td>
               <button class="btn-view" (click)="view(member)">View</button>
               <button class="btn-edit" (click)="edit(member)">Edit</button>
-              <button class="btn-delete" (click)="delete(member.id)">Delete</button>
+              <button class="btn-delete" *ngIf="member.id !== undefined" (click)="delete(member.id!)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  
+</div>

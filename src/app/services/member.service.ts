@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Member } from '../models/Member.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +20,7 @@ export class MemberService {
   }
 
   addMember(member: Member): Observable<Member> {
-    return this.http.post<Member>(this.API_URL, member);
+    return this.http.post<Member>(`${this.API_URL}/add`, member);
   }
 
   updateMember(id: number, member: Member): Observable<Member> {
@@ -30,5 +29,9 @@ export class MemberService {
 
   deleteMember(id: number): Observable<any> {
     return this.http.delete(`${this.API_URL}/${id}`);
+  }
+
+  searchMembers(query: string): Observable<Member[]> {
+    return this.http.get<Member[]>(`${this.API_URL}/search?query=${encodeURIComponent(query)}`);
   }
 }

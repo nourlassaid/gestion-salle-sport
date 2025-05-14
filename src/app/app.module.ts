@@ -17,6 +17,9 @@ import { AuthGuard } from './auth.guard';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { MembersListComponent } from './members-list/members-list.component';
 import { MemberViewComponent } from './member-view/member-view.component';
+import { SearchResultsComponent } from './members/search-results/search-results.component';
+import { TopbarComponent } from './topbar/topbar.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { MemberViewComponent } from './member-view/member-view.component';
     AdminDashboardComponent,
     AddMemberComponent,
     MembersListComponent,
-    MemberViewComponent
+    MemberViewComponent,
+    SearchResultsComponent,
+    TopbarComponent,
+    
   ],
   imports: [
     BrowserModule,

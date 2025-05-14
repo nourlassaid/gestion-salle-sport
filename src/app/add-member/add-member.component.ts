@@ -15,13 +15,15 @@ export class AddMemberComponent {
     private http: HttpClient,
     private router: Router // ✅ Ajouté ici
   ) {
-    this.memberForm = this.fb.group({
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
-      telephone: [''],
-      date_inscription: [''],
-      prix: ['']
-    });
+ this.memberForm = this.fb.group({
+  nom: ['', Validators.required],
+  prenom: ['', Validators.required],
+  telephone: [''],
+  date_inscription: [''],
+  prix: [''],
+  sexe: ['', Validators.required] // ✅ nouveau champ requis
+});
+
   }
 
   onSubmit() {
