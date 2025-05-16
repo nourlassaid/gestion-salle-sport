@@ -19,6 +19,16 @@ import { MembersListComponent } from './members-list/members-list.component';
 import { MemberViewComponent } from './member-view/member-view.component';
 import { SearchResultsComponent } from './members/search-results/search-results.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AddCoachComponent } from './add-coach/add-coach.component';
+import { CoachListComponent } from './coach-list/coach-list.component';
+import { CoachFormComponent } from './coach-form/coach-form.component';
+import { AddComponent } from './planning/add/add.component';
+import { PlanningImageListComponent } from './planning-image-list/planning-image-list.component';
+import { PlanningUploadComponent } from './planning-upload/planning-upload.component';
+import { FactureListComponent } from './facture-list/facture-list.component';
+import { FactureAddComponent } from './facture-add/facture-add.component';
+
 
 
 @NgModule({
@@ -35,7 +45,17 @@ import { TopbarComponent } from './topbar/topbar.component';
     MemberViewComponent,
     SearchResultsComponent,
     TopbarComponent,
-    
+    DashboardComponent,
+    AddCoachComponent,
+    CoachListComponent,
+    CoachFormComponent,
+    AddComponent,
+    PlanningImageListComponent,
+    PlanningUploadComponent,
+    FactureListComponent,
+     FactureAddComponent,
+    FactureListComponent
+ 
   ],
   imports: [
     BrowserModule,

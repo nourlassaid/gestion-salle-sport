@@ -1,5 +1,9 @@
-<!-- topbar.component -->
-<app-topbar *ngIf="showTopbar"></app-topbar>
+<!-- Navbar (en haut) -->
 
-<!-- le routeur -->
-<router-outlet></router-outlet>
+<!-- Contenu de la page selon la route -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Pied de page (en bas) -->
+<app-footer></app-footer>

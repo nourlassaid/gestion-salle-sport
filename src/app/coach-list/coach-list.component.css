@@ -1,0 +1,89 @@
+.coach-list {
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.coach-list h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.coach-items-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coach-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.coach-item:hover {
+  transform: scale(1.03);
+}
+
+.coach-info {
+  flex-grow: 1;
+}
+
+.coach-name {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.coach-specialty {
+  font-style: italic;
+  color: #777;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.no-coaches-message {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+.edit-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  margin-left: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}

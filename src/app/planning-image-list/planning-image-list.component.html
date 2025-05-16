@@ -1,0 +1,11 @@
+<h2 class="title">📅 Liste des Plannings</h2>
+
+<div *ngIf="images.length === 0" class="no-planning">
+  <p>Aucun planning disponible pour le moment.</p>
+</div>
+
+<div class="planning-grid" *ngIf="images.length > 0">
+  <div *ngFor="let img of images" class="planning-card">
+    <img [src]="'http://localhost:3000' + img" alt="planning" />
+  </div>
+</div>

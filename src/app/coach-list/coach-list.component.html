@@ -1,0 +1,20 @@
+<div class="coach-list">
+  <h2>Liste des Coachs</h2>
+  
+  <!-- Affichage du message si aucun coach n'est trouvé -->
+  <div *ngIf="coaches.length === 0" class="no-coaches-message">
+    <p>Aucun coach trouvé.</p>
+  </div>
+
+  <!-- Affichage de la liste des coachs -->
+  <ul *ngIf="coaches.length > 0" class="coach-items-list">
+    <li *ngFor="let coach of coaches" class="coach-item">
+      <div class="coach-info">
+        <p class="coach-name"><strong>{{ coach.nom }} {{ coach.prenom }}</strong></p>
+        <p class="coach-specialty"><em>{{ coach.specialite }}</em></p>
+      </div>
+      <button class="delete-btn" (click)="onDelete(coach.id)">🗑️ Supprimer</button>
+      <button class="edit-btn" (click)="onEdit(coach)">✏️ Modifier</button> <!-- Ajouter bouton Modifier -->
+    </li>
+  </ul>
+</div>

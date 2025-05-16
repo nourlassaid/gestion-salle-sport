@@ -1,0 +1,11 @@
+<!-- facture-add.component.html -->
+<h2>🧾 Ajouter une Facture</h2>
+
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <input type="text" name="client" placeholder="Nom client" [(ngModel)]="facture.client" required />
+  <input type="date" name="date" [(ngModel)]="facture.date" required />
+  <input type="number" name="montant" placeholder="Montant" [(ngModel)]="facture.montant" required />
+  <textarea name="description" [(ngModel)]="facture.description" placeholder="Description"></textarea>
+  <input type="file" (change)="onFileChange($event)" accept="application/pdf" required />
+<button type="submit">Ajouter</button>
+</form>

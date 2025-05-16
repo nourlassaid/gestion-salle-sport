@@ -1,0 +1,29 @@
+<div class="form-container">
+  <h2>{{ isEditMode ? 'Modifier coach' : 'Ajouter coach' }}</h2>
+  
+  <form [formGroup]="coachForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nom">Nom</label>
+      <input id="nom" formControlName="nom" type="text" />
+    </div>
+
+    <div>
+      <label for="prenom">Prénom</label>
+      <input id="prenom" formControlName="prenom" type="text" />
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+    </div>
+
+    <div>
+      <label for="telephone">Téléphone</label>
+      <input id="telephone" formControlName="telephone" type="text" />
+    </div>
+
+    <button type="submit">
+      {{ isEditMode ? 'Mettre à jour' : 'Enregistrer' }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<h2>📋 Liste des Factures</h2>
+
+<table class="facture-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Client</th>
+      <th>Date</th>
+      <th>Montant</th>
+      <th>PDF</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of factures; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ f.client }}</td>
+      <td>{{ f.date }}</td>
+      <td>{{ f.montant }} DT</td>
+      <td><a [href]="'http://localhost:3000' + f.pdf_url" target="_blank">Voir</a></td>
+      <td>
+        <button class="btn-edit" (click)="editFacture(f.id)">✏️</button>
+        <button class="btn-delete" (click)="deleteFacture(f.id)">🗑️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
