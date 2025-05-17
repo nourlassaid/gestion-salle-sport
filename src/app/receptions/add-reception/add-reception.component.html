@@ -1,0 +1,17 @@
+<div class="p-6 bg-gray-100 min-h-screen">
+    <h2 class="text-2xl font-bold mb-4">Ajouter une réceptionniste</h2>
+  
+    <form [formGroup]="receptionForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <input formControlName="nom" type="text" placeholder="Nom" class="input" />
+      <input formControlName="prenom" type="text" placeholder="Prénom" class="input" />
+      <input formControlName="telephone" type="text" placeholder="Téléphone" class="input" />
+      <input formControlName="email" type="email" placeholder="Email" class="input" />
+      <select formControlName="sexe" class="input">
+        <option value="" disabled>Choisir le sexe</option>
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
+      </select>
+      <button type="submit" class="btn">Ajouter</button>
+    </form>
+  </div>
+  

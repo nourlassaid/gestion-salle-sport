@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 })
 export class AddCoachComponent {
   coachForm: FormGroup;
-  loading = false;  // Variable pour afficher l'état de chargement
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
     private coachService: CoachService,
     private router: Router
   ) {
+    // Initialisation du formulaire
     this.coachForm = this.fb.group({
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
@@ -26,24 +27,29 @@ export class AddCoachComponent {
     });
   }
 
-  // Méthode appelée lors de la soumission du formulaire
+  // Soumission du formulaire
   onSubmit(): void {
+    console.log('Formulaire soumis'); // Test console
+
     if (this.coachForm.valid) {
-      this.loading = true;  // Démarre le chargement
-      console.log('Formulaire envoyé avec ces données :', this.coachForm.value);
-      this.coachService.addCoach(this.coachForm.value).subscribe({
+      this.loading = true;
+      const coachData = this.coachForm.value;
+
+      this.coachService.addCoach(coachData).subscribe({
         next: () => {
-          console.log('Coach ajouté avec succès');
-          this.loading = false;  // Fin du chargement
-          this.router.navigate(['/coaches/list']); // Redirige après l'ajout
+          alert('Coach ajouté avec succès !');
+          this.coachForm.reset();
+          this.loading = false;
+          this.router.navigate(['/coaches/list']); // Redirection vers la liste
         },
         error: (err) => {
-          console.error('Erreur lors de l\'ajout du coach:', err);
-          this.loading = false;  // Fin du chargement même en cas d'erreur
+          console.error('Erreur ajout coach:', err);
+          alert("Erreur lors de l'ajout du coach.");
+          this.loading = false;
         }
       });
     } else {
-      console.error('Le formulaire n\'est pas valide');
+      this.coachForm.markAllAsTouched(); // Affiche les erreurs
     }
   }
 }

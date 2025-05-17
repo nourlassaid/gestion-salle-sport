@@ -1,0 +1,13 @@
+<div class="form-container">
+    <h2>Ajouter un abonnement</h2>
+  
+    <form [formGroup]="abonnementForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Nom" formControlName="nom" />
+      <textarea placeholder="Description" formControlName="description"></textarea>
+      <input type="number" placeholder="Prix" formControlName="prix" />
+      <input type="text" placeholder="Durée (ex: 1 mois)" formControlName="duree" />
+  
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+  

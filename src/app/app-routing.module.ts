@@ -18,6 +18,11 @@ import { PlanningImageListComponent } from './planning-image-list/planning-image
 import { PlanningUploadComponent } from './planning-upload/planning-upload.component';
 import { FactureAddComponent } from './facture-add/facture-add.component';
 import { FactureListComponent } from './facture-list/facture-list.component';
+import { MonthMembersComponent } from './month-members/month-members.component';
+import { AddReceptionComponent } from './receptions/add-reception/add-reception.component';
+import { ListReceptionsComponent } from './receptions/list-receptions/list-receptions.component';
+import { AddAbonnementComponent } from './add-abonnement/add-abonnement.component';
+import { ListAbonnementComponent } from './list-abonnement/list-abonnement.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admindashboard', pathMatch: 'full' },
@@ -30,14 +35,27 @@ const routes: Routes = [
   { path: 'members/list', component: MembersListComponent },
   { path: 'members/view/:id', component: MemberViewComponent },
   { path: 'search', component: SearchResultsComponent },
-  { path: 'coaches/add', component: CoachFormComponent }, // ✅ corrigé
+  { path: 'coaches/add', component: CoachFormComponent },
   { path: 'coaches/list', component: CoachListComponent },
-  { path: 'coaches/edit', component: CoachFormComponent },
+  { path: 'coaches/edit/:id', component: CoachFormComponent }, // <-- correcte
   { path: 'planning/add', component: AddComponent },
   { path: 'planning/list', component: PlanningImageListComponent }, // ✅ si créé
     { path: 'planning/upload', component: PlanningUploadComponent },
 { path: 'factures/add', component: FactureAddComponent },
-  { path: 'factures/list', component: FactureListComponent }
+  { path: 'factures/list', component: FactureListComponent },
+  { path: 'members/month/:month', component: MonthMembersComponent },
+  {
+    path: 'receptions/add',
+    component: AddReceptionComponent,
+  },
+  {
+    path: 'receptions/list',
+    component: ListReceptionsComponent,},
+  { path: 'subscriptions/add', component: AddAbonnementComponent },
+  { path: 'subscriptions/list', component: ListAbonnementComponent },
+
+  // Redirection par défaut si besoin
+  { path: '', redirectTo: '/admindashboard', pathMatch: 'full' }
 
 
 ];

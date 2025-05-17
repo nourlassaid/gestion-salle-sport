@@ -1,65 +1,78 @@
-<div class="p-6 bg-gray-100 min-h-screen">
-  <div class="text-sm text-gray-500 mb-6">
-    Dashboard / <span class="text-gray-900 font-medium">Ajouter un coach</span>
-  </div>
+<div class="container mx-auto p-6 bg-black text-yellow-400 rounded-lg shadow-lg max-w-md mt-10">
+  <h2 class="text-2xl font-bold mb-6 text-center">Ajouter un Coach</h2>
 
-  <div class="bg-white max-w-xl mx-auto shadow-md rounded-xl p-8">
-    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">AJOUTER UN COACH</h2>
+  <form [formGroup]="coachForm" (ngSubmit)="onSubmit()" class="space-y-4">
 
-    <form [formGroup]="coachForm" (ngSubmit)="onSubmit()" class="space-y-5">
-      <!-- Nom -->
-      <div>
-        <label class="block mb-1 text-sm font-medium text-gray-700">Nom</label>
-        <input type="text" formControlName="nom" class="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-        <div *ngIf="coachForm.get('nom')?.invalid && coachForm.get('nom')?.touched" class="text-red-500 text-sm">
-          Le nom est requis.
-        </div>
+    <div>
+      <label for="nom" class="block mb-1">Nom yyy:</label>
+      <input
+        type="text"
+        id="nom"
+        formControlName="nom"
+        class="w-full px-4 py-2 rounded bg-yellow-100 text-black focus:outline-none"
+      />
+      <div *ngIf="coachForm.get('nom')?.invalid && coachForm.get('nom')?.touched" class="text-red-500 text-sm">
+        Le nom est requis.
       </div>
+    </div>
 
-      <!-- Prénom -->
-      <div>
-        <label class="block mb-1 text-sm font-medium text-gray-700">Prénom</label>
-        <input type="text" formControlName="prenom" class="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-        <div *ngIf="coachForm.get('prenom')?.invalid && coachForm.get('prenom')?.touched" class="text-red-500 text-sm">
-          Le prénom est requis.
-        </div>
+    <div>
+      <label for="prenom" class="block mb-1">Prénom :</label>
+      <input
+        type="text"
+        id="prenom"
+        formControlName="prenom"
+        class="w-full px-4 py-2 rounded bg-yellow-100 text-black focus:outline-none"
+      />
+      <div *ngIf="coachForm.get('prenom')?.invalid && coachForm.get('prenom')?.touched" class="text-red-500 text-sm">
+        Le prénom est requis.
       </div>
+    </div>
 
-      <!-- Téléphone -->
-      <div>
-        <label class="block mb-1 text-sm font-medium text-gray-700">Téléphone</label>
-        <input type="text" formControlName="telephone" class="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-        <div *ngIf="coachForm.get('telephone')?.invalid && coachForm.get('telephone')?.touched" class="text-red-500 text-sm">
-          Le téléphone est requis.
-        </div>
+    <div>
+      <label for="telephone" class="block mb-1">Téléphone :</label>
+      <input
+        type="tel"
+        id="telephone"
+        formControlName="telephone"
+        class="w-full px-4 py-2 rounded bg-yellow-100 text-black focus:outline-none"
+      />
+      <div *ngIf="coachForm.get('telephone')?.invalid && coachForm.get('telephone')?.touched" class="text-red-500 text-sm">
+        Le téléphone est requis.
       </div>
+    </div>
 
-      <!-- Spécialité -->
-      <div>
-        <label class="block mb-1 text-sm font-medium text-gray-700">Spécialité</label>
-        <input type="text" formControlName="specialite" class="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-        <div *ngIf="coachForm.get('specialite')?.invalid && coachForm.get('specialite')?.touched" class="text-red-500 text-sm">
-          La spécialité est requise.
-        </div>
+    <div>
+      <label for="specialite" class="block mb-1">Spécialité :</label>
+      <input
+        type="text"
+        id="specialite"
+        formControlName="specialite"
+        class="w-full px-4 py-2 rounded bg-yellow-100 text-black focus:outline-none"
+      />
+      <div *ngIf="coachForm.get('specialite')?.invalid && coachForm.get('specialite')?.touched" class="text-red-500 text-sm">
+        La spécialité est requise.
       </div>
+    </div>
 
-      <!-- Sexe -->
-      <div>
-        <label class="block mb-1 text-sm font-medium text-gray-700">Sexe</label>
-        <select formControlName="sexe" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-          <option value="" disabled selected>Choisir sexe</option>
-          <option value="Homme">Homme</option>
-          <option value="Femme">Femme</option>
-        </select>
-        <div *ngIf="coachForm.get('sexe')?.invalid && coachForm.get('sexe')?.touched" class="text-red-500 text-sm">
-          Le sexe est requis.
-        </div>
+    <div>
+      <label for="sexe" class="block mb-1">Sexe :</label>
+      <select
+        id="sexe"
+        formControlName="sexe"
+        class="w-full px-4 py-2 rounded bg-yellow-100 text-black focus:outline-none"
+      >
+        <option value="">-- Sélectionner --</option>
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
+      </select>
+      <div *ngIf="coachForm.get('sexe')?.invalid && coachForm.get('sexe')?.touched" class="text-red-500 text-sm">
+        Le sexe est requis.
       </div>
+    </div>
 
-      <!-- Bouton submit -->
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-        Enregistrer
-      </button>
-    </form>
-  </div>
+    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+      Enregistrer
+    </button>
+  </form>
 </div>

@@ -1,0 +1,27 @@
+<div class="list-container">
+    <h2>Liste des abonnements</h2>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Prix</th>
+          <th>Durée</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of abonnements">
+          <td>{{ a.nom }}</td>
+          <td>{{ a.description }}</td>
+          <td>{{ a.prix }} DT</td>
+          <td>{{ a.duree }}</td>
+          <td>
+            <button (click)="delete(a.id)">🗑 Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

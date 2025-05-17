@@ -13,7 +13,7 @@
         <p class="coach-name"><strong>{{ coach.nom }} {{ coach.prenom }}</strong></p>
         <p class="coach-specialty"><em>{{ coach.specialite }}</em></p>
       </div>
-      <button class="delete-btn" (click)="onDelete(coach.id)">🗑️ Supprimer</button>
+      <button class="delete-btn" *ngIf="coach.id !== undefined" (click)="onDelete(coach.id)">🗑️ Supprimer</button>
       <button class="edit-btn" (click)="onEdit(coach)">✏️ Modifier</button> <!-- Ajouter bouton Modifier -->
     </li>
   </ul>

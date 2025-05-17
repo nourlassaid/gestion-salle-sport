@@ -1,6 +1,6 @@
 // src/app/models/coach.model.ts
 export interface Coach {
-  id: number;          // Assure-toi que l'id est bien défini ici
+  id?: number;  // L'id est optionnel lors de l'ajout
   nom: string;
   prenom: string;
   telephone: string;

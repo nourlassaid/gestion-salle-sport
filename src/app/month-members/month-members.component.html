@@ -1,0 +1,41 @@
+<div class="header-controls">
+    <input
+      type="text"
+      placeholder="Rechercher un membre..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+    />
+    <button (click)="exportPDF()">📄 Export PDF</button>
+    <button (click)="exportExcel()">📊 Export Excel</button>
+  </div>
+  
+  <h2>Membres du mois : {{ monthName }}</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Téléphone</th>
+        <th>Date d'inscription</th>
+        <th>Prix</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of members; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ member.nom }} {{ member.prenom }}</td>
+        <td>{{ member.telephone }}</td>
+        <td>{{ member.date_inscription | date:'dd/MM/yyyy' }}</td>
+        <td>{{ member.prix }} DT</td>
+        <td>
+          <button class="action-btn view" (click)="viewMember(member)">👁️</button>
+          <button class="action-btn edit" (click)="editMember(member)">✏️</button>
+          <button class="action-btn delete" (click)="deleteMember(member)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  

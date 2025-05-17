@@ -1,0 +1,27 @@
+<div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Téléphone</th>
+          <th>Email</th>
+          <th>Sexe</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of receptionnistes">
+          <td data-label="Nom">{{ r.nom }}</td>
+          <td data-label="Prénom">{{ r.prenom }}</td>
+          <td data-label="Téléphone">{{ r.telephone }}</td>
+          <td data-label="Email">{{ r.email }}</td>
+          <td data-label="Sexe">{{ r.sexe }}</td>
+          <td data-label="Actions">
+            <button (click)="delete(r.id!)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

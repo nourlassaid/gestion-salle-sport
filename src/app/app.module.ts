@@ -28,6 +28,11 @@ import { PlanningImageListComponent } from './planning-image-list/planning-image
 import { PlanningUploadComponent } from './planning-upload/planning-upload.component';
 import { FactureListComponent } from './facture-list/facture-list.component';
 import { FactureAddComponent } from './facture-add/facture-add.component';
+import { MonthMembersComponent } from './month-members/month-members.component';
+import { AddReceptionComponent } from './receptions/add-reception/add-reception.component';
+import { ListReceptionsComponent } from './receptions/list-receptions/list-receptions.component';
+import { AddAbonnementComponent } from './add-abonnement/add-abonnement.component';
+import { ListAbonnementComponent } from './list-abonnement/list-abonnement.component';
 
 
 
@@ -54,7 +59,12 @@ import { FactureAddComponent } from './facture-add/facture-add.component';
     PlanningUploadComponent,
     FactureListComponent,
      FactureAddComponent,
-    FactureListComponent
+    FactureListComponent,
+    MonthMembersComponent,
+    AddReceptionComponent,
+    ListReceptionsComponent,
+    AddAbonnementComponent,
+    ListAbonnementComponent
  
   ],
   imports: [
