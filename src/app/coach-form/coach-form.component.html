@@ -1,35 +1,111 @@
-<h2>Ajouter coach</h2>
+<h2 class="text-4xl font-extrabold text-gray-900 mb-6">Ajouter coach</h2>
 
-<form [formGroup]="coachForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="nom">Nom</label>
-    <input id="nom" formControlName="nom" type="text" />
+
+<form [formGroup]="coachForm" (ngSubmit)="onSubmit()" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+  
+  <div class="mb-4 relative">
+    <label for="nom" class="block mb-1 font-medium text-gray-700">Nom</label>
+    <div class="relative">
+      <input
+        id="nom"
+        formControlName="nom"
+        type="text"
+        class="w-full pl-10 pr-3 py-2 border border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        placeholder="Entrez le nom"
+      />
+      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-yellow-500">
+        <!-- Icon utilisateur -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A9 9 0 1118.88 6.195M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <label for="prenom">Prénom</label>
-    <input id="prenom" formControlName="prenom" type="text" />
+  <div class="mb-4 relative">
+    <label for="prenom" class="block mb-1 font-medium text-gray-700">Prénom</label>
+    <div class="relative">
+      <input
+        id="prenom"
+        formControlName="prenom"
+        type="text"
+        class="w-full pl-10 pr-3 py-2 border border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        placeholder="Entrez le prénom"
+      />
+      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-yellow-500">
+        <!-- Icon utilisateur (même que nom) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A9 9 0 1118.88 6.195M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </div>
+    </div>
   </div>
 
- 
-  <div>
-    <label for="telephone">Téléphone</label>
-    <input id="telephone" formControlName="telephone" type="text" />
+  <div class="mb-4 relative">
+    <label for="telephone" class="block mb-1 font-medium text-gray-700">Téléphone</label>
+    <div class="relative">
+      <input
+        id="telephone"
+        formControlName="telephone"
+        type="text"
+        class="w-full pl-10 pr-3 py-2 border border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        placeholder="Entrez le téléphone"
+      />
+      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-yellow-500">
+        <!-- Icon téléphone -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v3a2 2 0 01-2 2H5l-2 2v4a2 2 0 002 2h2a2 2 0 012-2v-3a2 2 0 01-2-2h2a2 2 0 012-2V5a2 2 0 012-2h2a2 2 0 012 2v3a2 2 0 01-2 2h-2l-2 2v4a2 2 0 002 2h2a2 2 0 012-2v-3a2 2 0 01-2-2h2a2 2 0 012 2v3a2 2 0 01-2 2h-2a2 2 0 01-2-2v-3a2 2 0 01-2-2h-2a2 2 0 01-2-2V5z" />
+        </svg>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <label for="specialite">Spécialité</label>
-    <input id="specialite" formControlName="specialite" type="text" />
+  <div class="mb-4 relative">
+    <label for="specialite" class="block mb-1 font-medium text-gray-700">Spécialité</label>
+    <div class="relative">
+      <input
+        id="specialite"
+        formControlName="specialite"
+        type="text"
+        class="w-full pl-10 pr-3 py-2 border border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        placeholder="Entrez la spécialité"
+      />
+      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-yellow-500">
+        <!-- Icon étoile (pour spécialité) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.385 2.455a1 1 0 00-.364 1.118l1.287 3.974c.3.921-.755 1.688-1.54 1.118L12 13.347l-3.385 2.455c-.784.57-1.838-.197-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L5.615 9.4c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.974z" />
+        </svg>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <label for="sexe">Sexe</label>
-    <select id="sexe" formControlName="sexe">
-      <option value="">-- Choisir --</option>
-      <option value="Homme">Homme</option>
-      <option value="Femme">Femme</option>
-    </select>
+  <div class="mb-6 relative">
+    <label for="sexe" class="block mb-1 font-medium text-gray-700">Sexe</label>
+    <div class="relative">
+      <select
+        id="sexe"
+        formControlName="sexe"
+        class="w-full pl-10 pr-3 py-2 border border-yellow-400 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-yellow-300"
+      >
+        <option value="">-- Choisir --</option>
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
+      </select>
+      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-yellow-500">
+        <!-- Icon genre -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5 12.083 12.083 0 015.84 10.578L12 14z" />
+        </svg>
+      </div>
+    </div>
   </div>
 
-  <button type="submit" [disabled]="coachForm.invalid">Enregistrer</button>
+  <button
+    type="submit"
+    [disabled]="coachForm.invalid"
+    class="w-full py-3 bg-yellow-500 text-white font-semibold rounded-md hover:bg-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition"
+  >
+    Enregistrer
+  </button>
 </form>

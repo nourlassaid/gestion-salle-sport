@@ -1,41 +1,85 @@
-<div class="header-controls">
+<div class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-xl mt-10">
+  <!-- Header Controls -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
     <input
       type="text"
       placeholder="Rechercher un membre..."
       [(ngModel)]="searchQuery"
       (input)="onSearchChange()"
+      class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
-    <button (click)="exportPDF()">📄 Export PDF</button>
-    <button (click)="exportExcel()">📊 Export Excel</button>
+    <div class="flex gap-3">
+      <button
+        (click)="exportPDF()"
+        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition"
+      >
+        📄 Export PDF
+      </button>
+      <button
+        (click)="exportExcel()"
+        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition"
+      >
+        📊 Export Excel
+      </button>
+    </div>
   </div>
-  
-  <h2>Membres du mois : {{ monthName }}</h2>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Nom</th>
-        <th>Téléphone</th>
-        <th>Date d'inscription</th>
-        <th>Prix</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let member of members; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ member.nom }} {{ member.prenom }}</td>
-        <td>{{ member.telephone }}</td>
-        <td>{{ member.date_inscription | date:'dd/MM/yyyy' }}</td>
-        <td>{{ member.prix }} DT</td>
-        <td>
-          <button class="action-btn view" (click)="viewMember(member)">👁️</button>
-          <button class="action-btn edit" (click)="editMember(member)">✏️</button>
-          <button class="action-btn delete" (click)="deleteMember(member)">🗑️</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+  <!-- Title -->
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">
+    Membres du mois : <span class="text-blue-600">{{ monthName }}</span>
+  </h2>
+
+  <!-- Table -->
+  <div class="overflow-x-auto rounded-lg shadow">
+    <table class="min-w-full bg-white text-gray-800">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">#</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Nom</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Téléphone</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Date d'inscription</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Prix</th>
+          <th class="px-6 py-3 text-center text-sm font-semibold uppercase">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let member of members; let i = index"
+          class="border-b hover:bg-gray-50 transition"
+        >
+          <td class="px-6 py-4 whitespace-nowrap">{{ i + 1 }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.nom }} {{ member.prenom }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.telephone }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.date_inscription | date:'dd/MM/yyyy' }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.prix }} DT</td>
+          <td class="px-6 py-4 whitespace-nowrap text-center space-x-2">
+            <button
+              (click)="viewMember(member)"
+              class="action-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md transition"
+              title="Voir"
+              aria-label="Voir"
+            >
+              👁️
+            </button>
+            <button
+              (click)="editMember(member)"
+              class="action-btn bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-3 py-1 rounded-md transition"
+              title="Modifier"
+              aria-label="Modifier"
+            >
+              ✏️
+            </button>
+            <button
+              (click)="deleteMember(member)"
+              class="action-btn bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md transition"
+              title="Supprimer"
+              aria-label="Supprimer"
+            >
+              🗑️
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

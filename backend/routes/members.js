@@ -55,16 +55,27 @@ router.get('/:id', (req, res) => {
     res.json(results[0]);
   });
 });
-
 // Modifier un membre
 router.put('/:id', (req, res) => {
   const { nom, prenom, telephone, date_inscription, prix, sexe, enfant } = req.body;
-  const sql = `UPDATE members SET nom=?, prenom=?, telephone=?, date_inscription=?, prix=?, sexe=?, enfant=? WHERE id=?`;
-  db.query(sql, [nom, prenom, telephone, date_inscription, prix, sexe, enfant, req.params.id], (err) => {
+
+  const sql = `
+    UPDATE members
+    SET nom = ?, prenom = ?, telephone = ?, date_inscription = ?, prix = ?, sexe = ?, enfant = ?
+    WHERE id = ?
+  `;
+
+  db.query(sql, [nom, prenom, telephone, date_inscription, prix, sexe, enfant, req.params.id], (err, result) => {
     if (err) return res.status(500).json({ message: 'Erreur serveur' });
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Membre non trouvé' });
+    }
+
     res.json({ message: 'Membre modifié avec succès' });
   });
 });
+
 
 // Supprimer un membre
 router.delete('/:id', (req, res) => {

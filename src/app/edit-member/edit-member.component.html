@@ -1,0 +1,22 @@
+<h2>Modifier Membre</h2>
+
+<form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+  <label for="nom">Nom:</label>
+  <input id="nom" formControlName="nom" type="text" required />
+
+  <label for="prenom">Prénom:</label>
+  <input id="prenom" formControlName="prenom" type="text" required />
+
+  <label for="telephone">Téléphone:</label>
+  <input id="telephone" formControlName="telephone" type="text" required />
+
+  <label for="date_inscription">Date d'inscription:</label>
+  <input id="date_inscription" formControlName="date_inscription" type="date" required />
+
+  <label for="prix">Prix:</label>
+  <input id="prix" formControlName="prix" type="number" min="0" required />
+
+  <button type="submit" [disabled]="!memberForm.valid || isSubmitting">
+    {{ isSubmitting ? '⏳ Enregistrement...' : '💾 Enregistrer' }}
+  </button>
+</form>

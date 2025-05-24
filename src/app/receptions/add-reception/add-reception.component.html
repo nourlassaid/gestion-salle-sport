@@ -1,17 +1,26 @@
-<div class="p-6 bg-gray-100 min-h-screen">
-    <h2 class="text-2xl font-bold mb-4">Ajouter une réceptionniste</h2>
-  
+<div class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center px-4">
+  <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+      👩‍💼 Ajouter une Réceptionniste
+    </h2>
+
     <form [formGroup]="receptionForm" (ngSubmit)="onSubmit()" class="space-y-4">
-      <input formControlName="nom" type="text" placeholder="Nom" class="input" />
-      <input formControlName="prenom" type="text" placeholder="Prénom" class="input" />
-      <input formControlName="telephone" type="text" placeholder="Téléphone" class="input" />
-      <input formControlName="email" type="email" placeholder="Email" class="input" />
-      <select formControlName="sexe" class="input">
-        <option value="" disabled>Choisir le sexe</option>
+      <input formControlName="nom" type="text" placeholder="Nom" class="form-input" />
+      <input formControlName="prenom" type="text" placeholder="Prénom" class="form-input" />
+      <input formControlName="telephone" type="text" placeholder="Téléphone" class="form-input" />
+      <input formControlName="email" type="email" placeholder="Email" class="form-input" />
+
+      <select formControlName="sexe" class="form-input">
+        <option value="" disabled selected>Choisir le sexe</option>
         <option value="Homme">Homme</option>
         <option value="Femme">Femme</option>
       </select>
-      <button type="submit" class="btn">Ajouter</button>
+<button type="submit"
+  class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-lg transition duration-200 disabled:opacity-50"
+  [disabled]="!receptionForm.valid">
+  ➕ Ajouter
+</button>
+
     </form>
   </div>
-  
+</div>

@@ -5,12 +5,12 @@ const path = require('path');
 const fs = require('fs');
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: (req, file, cb) => {
     const dir = 'uploads/plannings/';
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     cb(null, dir);
   },
-  filename: function (req, file, cb) {
+  filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname);
   }
 });
@@ -23,25 +23,14 @@ router.post('/upload-multiple', upload.array('images', 10), (req, res) => {
   res.status(200).json({ message: 'Images enregistrées', images: paths });
 });
 
-// Liste des images disponibles
-router.get('/list-images', (req, res) => {
-  const folderPath = path.join(__dirname, '../uploads/plannings');
-  fs.readdir(folderPath, (err, files) => {
-    if (err) return res.status(500).json({ error: 'Erreur lecture' });
-    const imagePaths = files.map(file => `/uploads/plannings/${file}`);
-    res.json(imagePaths);
-  });
-});
-// Route GET pour récupérer la liste des images
+// Récupérer la liste des images
 router.get('/images', (req, res) => {
   const folderPath = path.join(__dirname, '../uploads/plannings');
   fs.readdir(folderPath, (err, files) => {
     if (err) return res.status(500).json({ error: 'Erreur lecture' });
-
     const imagePaths = files.map(file => `/uploads/plannings/${file}`);
     res.json(imagePaths);
   });
 });
-
 
 module.exports = router;

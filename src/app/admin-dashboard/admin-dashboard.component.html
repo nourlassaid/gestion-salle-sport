@@ -1,91 +1,356 @@
+<div class="min-h-screen bg-white dark:bg-gray-900 flex flex-col">
 
-    <div class="search-container">
-      <input type="text" placeholder="Rechercher..." />
-      <i class="search-icon">🔍</i>
-    </div><div class="dashboard-container">
-  <nav class="sidebar">
-    <div class="logo">
-      POWER<span class="light">GYM NEFTA</span>
+  <!-- Header -->
+  <header
+    class="flex justify-between items-center bg-yellow-400 dark:bg-yellow-600 text-white px-6 py-4 shadow-md sticky top-0 z-10"
+  >
+    <div class="text-2xl font-bold tracking-wide flex items-center gap-2">
+      <img src="assets/logo.png" alt="Logo POWER GYM NEFTA" class="h-10 w-auto" />
+      POWER<span class="font-light">GYM NEFTA</span>
     </div>
 
-
-    <div class="section">
-      <div class="section-title">PRINCIPAL</div>
-      <ul>
-        <li>
-          <a routerLink="/admindashboard" routerLinkActive="active">🏠 Tableau de bord</a>
-        </li>
-      </ul>
+    <div class="w-96">
+      <label for="search" class="sr-only">Recherche</label>
+      <div class="relative text-yellow-500 dark:text-yellow-400">
+        <input
+          id="search"
+          type="text"
+          placeholder="Rechercher..."
+          class="w-full rounded-md py-2 pl-10 pr-4 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-300 dark:focus:ring-yellow-500"
+        />
+        <span class="absolute left-3 top-2.5 pointer-events-none">🔍</span>
+      </div>
     </div>
+  </header>
 
-    <div class="section">
-      <div class="section-title">PERSONNES</div>
-      <ul>
-        <li>
-          👤 <strong>Membres</strong>
-          <ul>
-            <li><a routerLink="/members/add" routerLinkActive="active">Ajouter un membre</a></li>
-            <li><a routerLink="/members/list" routerLinkActive="active">Afficher / Modifier les membres</a></li>
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- Sidebar -->
+    <nav class="w-64 bg-yellow-50 dark:bg-gray-800 border-r border-yellow-200 dark:border-gray-700 overflow-y-auto">
+      <div class="p-6 border-b border-yellow-200 dark:border-gray-700 font-bold text-yellow-700 dark:text-yellow-400 text-2xl tracking-wide">
+        <!-- Ici tu peux ajouter un titre si besoin -->
+      </div>
+
+      <div class="px-6 py-4 space-y-8 text-yellow-700 dark:text-yellow-400">
+        <!-- Principal -->
+        <section>
+          <h2 class="uppercase text-xs font-semibold tracking-widest mb-3 text-yellow-500 dark:text-yellow-300">
+            Principal
+          </h2>
+          <ul class="space-y-2">
+            <li>
+              <a
+                routerLink="/admindashboard"
+                routerLinkActive="active"
+                class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition font-medium"
+              >
+                🏠 Tableau de bord
+              </a>
+            </li>
           </ul>
-        </li>
+        </section>
 
-        <li>
-          🧑‍🏫 <strong>Coachs</strong>
-          <ul>
-            <li><a routerLink="/coaches/add" routerLinkActive="active">Ajouter un coach</a></li>
-            <li><a routerLink="/coaches/list" routerLinkActive="active">Afficher / Modifier les coachs</a></li>
-          </ul>
-        </li>
+        <!-- Personnes -->
+        <section>
+          <h2 class="uppercase text-xs font-semibold tracking-widest mb-3 text-yellow-500 dark:text-yellow-300">
+            Personnes
+          </h2>
 
-        <li>
-          🧑‍💼 <strong>Réceptionnistes</strong>
-          <ul>
-            <li><a routerLink="/receptions/add" routerLinkActive="active">Ajouter une réceptionniste</a></li>
-            <li><a routerLink="/receptions/list" routerLinkActive="active">Afficher / Modifier les réceptionnistes</a></li>
-          </ul>
-        </li>
+          <!-- Membres -->
+          <details class="group mb-3" open>
+            <summary
+              class="cursor-pointer flex items-center gap-2 font-semibold text-yellow-700 dark:text-yellow-400 group-open:text-yellow-900 dark:group-open:text-yellow-200"
+            >
+              👤 Membres
+              <svg
+                class="w-4 h-4 ml-auto transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul class="mt-2 ml-5 space-y-1 text-sm text-yellow-700 dark:text-yellow-400">
+              <li>
+                <a
+                  routerLink="/members/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter un membre
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/members/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher / Modifier les membres
+                </a>
+              </li>
+            </ul>
+          </details>
 
-        <li>
-          📋 <strong>Abonnements</strong>
-          <ul>
-            <li><a routerLink="/subscriptions/add" routerLinkActive="active">Ajouter un abonnement</a></li>
-            <li><a routerLink="/subscriptions/list" routerLinkActive="active">Afficher / Modifier les abonnements</a></li>
-            <li><a routerLink="/subscriptions/type/add" routerLinkActive="active">Ajouter un type d’abonnement</a></li>
-            <li><a routerLink="/subscriptions/type/list" routerLinkActive="active">Afficher / Modifier les types</a></li>
-          </ul>
-        </li>
-        <li>
-  💵 <strong>Factures</strong>
-  <ul>
-    <li><a routerLink="/factures/add" routerLinkActive="active">Ajouter une facture</a></li>
-    <li><a routerLink="/factures/list" routerLinkActive="active">Afficher les factures</a></li>
-  </ul>
-</li>
+          <!-- Coachs -->
+          <details class="group mb-3">
+            <summary
+              class="cursor-pointer flex items-center gap-2 font-semibold text-yellow-700 dark:text-yellow-400 group-open:text-yellow-900 dark:group-open:text-yellow-200"
+            >
+              🧑‍🏫 Coachs
+              <svg
+                class="w-4 h-4 ml-auto transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul class="mt-2 ml-5 space-y-1 text-sm text-yellow-700 dark:text-yellow-400">
+              <li>
+                <a
+                  routerLink="/coaches/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter un coach
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/coaches/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher / Modifier les coachs
+                </a>
+              </li>
+            </ul>
+          </details>
 
+          <!-- Réceptionnistes -->
+          <details class="group mb-3">
+            <summary
+              class="cursor-pointer flex items-center gap-2 font-semibold text-yellow-700 dark:text-yellow-400 group-open:text-yellow-900 dark:group-open:text-yellow-200"
+            >
+              🧑‍💼 Réceptionnistes
+              <svg
+                class="w-4 h-4 ml-auto transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul class="mt-2 ml-5 space-y-1 text-sm text-yellow-700 dark:text-yellow-400">
+              <li>
+                <a
+                  routerLink="/receptions/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter une réceptionniste
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/receptions/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher / Modifier les réceptionnistes
+                </a>
+              </li>
+            </ul>
+          </details>
 
-        <li>
-          🏋️ <strong>Activités</strong>
-          <ul>
-            <li><a routerLink="/activities/add" routerLinkActive="active">Ajouter une activité</a></li>
-            <li><a routerLink="/activities/list" routerLinkActive="active">Afficher / Modifier les activités</a></li>
-          </ul>
-        </li>
+          <!-- Abonnements -->
+          <details class="group mb-3">
+            <summary
+              class="cursor-pointer flex items-center gap-2 font-semibold text-yellow-700 dark:text-yellow-400 group-open:text-yellow-900 dark:group-open:text-yellow-200"
+            >
+              📋 Abonnements
+              <svg
+                class="w-4 h-4 ml-auto transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul class="mt-2 ml-5 space-y-1 text-sm text-yellow-700 dark:text-yellow-400">
+              <li>
+                <a
+                  routerLink="/subscriptions/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter un abonnement
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/subscriptions/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher / Modifier les abonnements
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/subscriptions/type/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter un type d’abonnement
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/subscriptions/type/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher / Modifier les types
+                </a>
+              </li>
+            </ul>
+          </details>
 
-         <li>
-      📅 <strong>Planning</strong>
-      <ul>
-<li><a routerLink="/planning/add" routerLinkActive="active">Ajouter un planning</a></li>
-        <li><a routerLink="/planning/list" routerLinkActive="active">Afficher / Modifier le planning</a></li>
-      </ul>
-    </li>
-        <li>
-          🚪 <a href="#" (click)="logout()">Se déconnecter</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+          <!-- Factures -->
+          <details class="group mb-3">
+            <summary
+              class="cursor-pointer flex items-center gap-2 font-semibold text-yellow-700 dark:text-yellow-400 group-open:text-yellow-900 dark:group-open:text-yellow-200"
+            >
+              💵 Factures
+              <svg
+                class="w-4 h-4 ml-auto transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul class="mt-2 ml-5 space-y-1 text-sm text-yellow-700 dark:text-yellow-400">
+              <li>
+                <a
+                  routerLink="/factures/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter une facture
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/factures/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher les factures
+                </a>
+              </li>
+            </ul>
+          </details>
 
-  <div class="main-content">
-    <router-outlet></router-outlet>
+          <!-- Activités -->
+          <details class="group mb-3">
+            <summary
+              class="cursor-pointer flex items-center gap-2 font-semibold text-yellow-700 dark:text-yellow-400 group-open:text-yellow-900 dark:group-open:text-yellow-200"
+            >
+              🏋️ Activités
+              <svg
+                class="w-4 h-4 ml-auto transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul class="mt-2 ml-5 space-y-1 text-sm text-yellow-700 dark:text-yellow-400">
+              <li>
+                <a
+                  routerLink="/activities/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter une activité
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/activities/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher / Modifier les activités
+                </a>
+              </li>
+            </ul>
+          </details>
+
+          <!-- Planning -->
+          <details class="group mb-3">
+            <summary
+              class="cursor-pointer flex items-center gap-2 font-semibold text-yellow-700 dark:text-yellow-400 group-open:text-yellow-900 dark:group-open:text-yellow-200"
+            >
+              📅 Planning
+              <svg
+                class="w-4 h-4 ml-auto transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul class="mt-2 ml-5 space-y-1 text-sm text-yellow-700 dark:text-yellow-400">
+              <li>
+                <a
+                  routerLink="/planning/add"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Ajouter un planning
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/planning/list"
+                  routerLinkActive="active"
+                  class="block px-2 py-1 rounded hover:bg-yellow-100 dark:hover:bg-yellow-700 hover:text-yellow-800 dark:hover:text-yellow-200 transition"
+                >
+                  Afficher / Modifier le planning
+                </a>
+              </li>
+            </ul>
+          </details>
+
+          <!-- Logout -->
+          <div class="mt-8">
+            <a
+              href="#"
+              (click)="logout()"
+              class="flex items-center gap-2 px-4 py-2 rounded bg-yellow-400 dark:bg-yellow-600 text-white font-semibold hover:bg-yellow-500 dark:hover:bg-yellow-700 transition"
+            >
+              🚪 Se déconnecter
+            </a>
+          </div>
+        </section>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto p-8 bg-white dark:bg-gray-900">
+      <router-outlet></router-outlet>
+    </main>
+
   </div>
 </div>

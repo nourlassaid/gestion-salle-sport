@@ -33,6 +33,15 @@ import { AddReceptionComponent } from './receptions/add-reception/add-reception.
 import { ListReceptionsComponent } from './receptions/list-receptions/list-receptions.component';
 import { AddAbonnementComponent } from './add-abonnement/add-abonnement.component';
 import { ListAbonnementComponent } from './list-abonnement/list-abonnement.component';
+import { EditMemberComponent } from './edit-member/edit-member.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { AboutComponent } from './about/about.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { CoachesComponent } from './coaches/coaches.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { PlanningComponent } from './planning/planning.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -64,7 +73,17 @@ import { ListAbonnementComponent } from './list-abonnement/list-abonnement.compo
     AddReceptionComponent,
     ListReceptionsComponent,
     AddAbonnementComponent,
-    ListAbonnementComponent
+    ListAbonnementComponent,
+    EditMemberComponent,
+    AccueilComponent,
+    AboutComponent,
+    ActivitiesComponent,
+    CoachesComponent,
+    SubscriptionsComponent,
+    
+    InscriptionComponent,
+    ContactComponent,
+    
  
   ],
   imports: [

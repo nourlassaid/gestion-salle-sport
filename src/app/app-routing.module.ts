@@ -23,6 +23,14 @@ import { AddReceptionComponent } from './receptions/add-reception/add-reception.
 import { ListReceptionsComponent } from './receptions/list-receptions/list-receptions.component';
 import { AddAbonnementComponent } from './add-abonnement/add-abonnement.component';
 import { ListAbonnementComponent } from './list-abonnement/list-abonnement.component';
+import { EditMemberComponent } from './edit-member/edit-member.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { AboutComponent } from './about/about.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { CoachesComponent } from './coaches/coaches.component';
+import { PlanningComponent } from './planning/planning.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admindashboard', pathMatch: 'full' },
@@ -55,7 +63,21 @@ const routes: Routes = [
   { path: 'subscriptions/list', component: ListAbonnementComponent },
 
   // Redirection par défaut si besoin
-  { path: '', redirectTo: '/admindashboard', pathMatch: 'full' }
+  { path: '', redirectTo: '/admindashboard', pathMatch: 'full' },
+{ path: 'members/edit/:id', component: EditMemberComponent },
+  { path: 'Accueil', component: AccueilComponent },
+    { path: 'about', component: AboutComponent },
+      { path: 'activities', component: ActivitiesComponent },
+        { path: 'coaches', component: CoachesComponent },
+          { path: 'planning', component: PlanningComponent },
+          { path: 'inscription', component: InscriptionComponent },
+  { path: 'contact', component: ContactComponent },
+
+
+
+
+
+
 
 
 ];

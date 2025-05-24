@@ -1,41 +1,74 @@
-<div class="admin-container">
-  <div class="admin-left">
-    <img src="assets/gym-hero.jpg" alt="Entraîne-toi plus fort" />
+<div class="flex min-h-screen bg-white text-black">
+  <!-- Partie gauche : image -->
+  <div class="hidden md:flex md:w-1/2 bg-yellow-400 items-center justify-center p-8">
+    <img 
+      src="assets/gym-hero.jpg" 
+      alt="Entraîne-toi plus fort" 
+      class="max-w-full max-h-full rounded-lg shadow-lg"
+    />
   </div>
 
-  <div class="admin-right">
-    <h2 class="title">POWER GYM NEFTA</h2>
-    <p class="subtitle">
+  <!-- Partie droite : formulaire -->
+  <div class="flex flex-col justify-center md:w-1/2 p-8">
+    <h2 class="text-4xl font-extrabold mb-4">POWER GYM NEFTA</h2>
+    <p class="mb-6 text-lg font-medium text-gray-700">
       {{ isLogin ? 'Bienvenue ! Connectez-vous à votre compte administrateur.' : 'Créez votre compte administrateur.' }}
     </p>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Nom d'utilisateur</label>
-        <input id="username" formControlName="username" type="text" placeholder="admin" required />
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-6">
+      <div class="flex flex-col">
+        <label for="username" class="mb-2 font-semibold">Nom d'utilisateur</label>
+        <input 
+          id="username" 
+          formControlName="username" 
+          type="text" 
+          placeholder="admin" 
+          required 
+          class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        />
       </div>
 
-      <div class="form-group" *ngIf="!isLogin">
-        <label for="name">Nom complet</label>
-        <input id="name" formControlName="name" type="text" placeholder="Jean Dupont" />
+      <div class="flex flex-col" *ngIf="!isLogin">
+        <label for="name" class="mb-2 font-semibold">Nom complet</label>
+        <input 
+          id="name" 
+          formControlName="name" 
+          type="text" 
+          placeholder="Jean Dupont" 
+          class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        />
       </div>
 
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input id="password" formControlName="password" type="password" placeholder="••••••••" required />
+      <div class="flex flex-col">
+        <label for="password" class="mb-2 font-semibold">Mot de passe</label>
+        <input 
+          id="password" 
+          formControlName="password" 
+          type="password" 
+          placeholder="••••••••" 
+          required 
+          class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        />
       </div>
 
-      <div class="remember" *ngIf="isLogin">
-        <input type="checkbox" id="remember" />
-        <label for="remember">Se souvenir de moi</label>
+      <div class="flex items-center space-x-2" *ngIf="isLogin">
+        <input type="checkbox" id="remember" class="w-4 h-4 text-yellow-400 focus:ring-yellow-400 border-gray-300 rounded" />
+        <label for="remember" class="text-gray-700 select-none">Se souvenir de moi</label>
       </div>
 
-      <button type="submit">{{ isLogin ? 'Connexion' : 'Inscription' }}</button>
+      <button 
+        type="submit" 
+        class="w-full bg-yellow-400 text-black font-bold py-3 rounded-md hover:bg-yellow-500 transition"
+      >
+        {{ isLogin ? 'Connexion' : 'Inscription' }}
+      </button>
     </form>
 
-    <p class="toggle">
+    <p class="mt-6 text-center text-gray-600">
       {{ isLogin ? "Vous n'avez pas de compte ?" : "Vous avez déjà un compte ?" }}
-      <a href="#" (click)="toggleMode($event)">{{ isLogin ? 'Inscrivez-vous' : 'Connectez-vous' }}</a>
+      <a href="#" (click)="toggleMode($event)" class="text-yellow-400 font-semibold hover:underline ml-1">
+        {{ isLogin ? 'Inscrivez-vous' : 'Connectez-vous' }}
+      </a>
     </p>
   </div>
 </div>
