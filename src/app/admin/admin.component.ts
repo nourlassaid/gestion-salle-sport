@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit {
   form!: FormGroup;
   isLogin = true;
+  successMessage = '';
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -29,41 +31,43 @@ export class AdminComponent implements OnInit {
   toggleMode(event: Event): void {
     event.preventDefault();
     this.isLogin = !this.isLogin;
+    this.successMessage = '';
+    this.errorMessage = '';
   }
 
   onSubmit(): void {
     const data = this.form.value;
+    this.successMessage = '';
+    this.errorMessage = '';
 
     if (this.isLogin) {
-      // Connexion
       this.http.post('http://localhost:3000/api/auth/login', {
         username: data.username,
         password: data.password
       }).subscribe({
         next: (res: any) => {
-          alert('Connexion réussie ! Bienvenue ' + res.user.name);
-          // Stocker l'utilisateur connecté
+          this.successMessage = 'Connexion réussie ! Bienvenue ' + res.user.name;
           localStorage.setItem('admin', JSON.stringify(res.user));
-          // Redirection vers le dashboard
-          this.router.navigate(['/admin/dashboard']);
+          setTimeout(() => {
+            this.router.navigate(['/admin/dashboard']);
+          }, 1000);
         },
         error: (err) => {
-          alert(err.error.message || 'Erreur lors de la connexion');
+          this.errorMessage = err.error.message || 'Erreur lors de la connexion';
         }
       });
     } else {
-      // Inscription
       this.http.post('http://localhost:3000/api/auth/register', {
         username: data.username,
         password: data.password,
         name: data.name
       }).subscribe({
         next: () => {
-          alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
-          this.toggleMode(new Event('click'));
+          this.successMessage = 'Inscription réussie ! Vous pouvez maintenant vous connecter.';
+          setTimeout(() => this.toggleMode(new Event('click')), 1000);
         },
         error: (err) => {
-          alert(err.error.message || 'Erreur lors de l\'inscription');
+          this.errorMessage = err.error.message || 'Erreur lors de l\'inscription';
         }
       });
     }

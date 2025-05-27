@@ -31,6 +31,8 @@ import { CoachesComponent } from './coaches/coaches.component';
 import { PlanningComponent } from './planning/planning.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ContactComponent } from './contact/contact.component';
+import { CoachDetailComponent } from './coach-detail/coach-detail.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admindashboard', pathMatch: 'full' },
@@ -72,8 +74,16 @@ const routes: Routes = [
           { path: 'planning', component: PlanningComponent },
           { path: 'inscription', component: InscriptionComponent },
   { path: 'contact', component: ContactComponent },
+    { path: 'coach/:id', component: CoachDetailComponent },
 
+{ path: 'pages/dash', component: DashboardComponent },
+  { path: 'admindashboard', component: DashboardComponent },
 
+{
+  path: 'admindashboard',
+  component: AdminDashboardComponent,
+  canActivate: [AuthGuard]
+}
 
 
 

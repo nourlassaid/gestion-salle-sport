@@ -1,5 +1,6 @@
 // src/app/models/coach.model.ts
 export interface Coach {
+description: any;
   id?: number;
   nom: string;
   prenom: string;

@@ -1,22 +1,34 @@
-<div class="dashboard-grid">
-  <div class="card">
-    <div class="icon">💪</div>
-    <h2>Membres</h2>
-    <p>{{ stats.totalMembres }}</p>
+<div class="p-6 space-y-6">
+
+  <!-- Statistiques globales -->
+  <div class="bg-yellow-500 text-black rounded-2xl p-6 shadow-lg flex justify-around text-center">
+    <div>
+      <h2 class="text-xl font-bold">Total Membres</h2>
+      <p class="text-3xl font-semibold">{{ stats.totalMembres || 0 }}</p>
+    </div>
+    <div>
+      <h2 class="text-xl font-bold">Total Coachs</h2>
+      <p class="text-3xl font-semibold">{{ stats.totalCoachs || 0 }}</p>
+    </div>
   </div>
-  <div class="card">
-    <div class="icon">🏋️‍♂️</div>
-    <h2>Coachs</h2>
-    <p>{{ stats.totalCoachs }}</p>
+
+  <!-- Statistiques par mois -->
+  <div class="space-y-4">
+    <h2 class="text-2xl font-bold text-gray-800">Statistiques par mois (Hommes / Femmes)</h2>
+
+    <div *ngFor="let stat of monthlySexStats" class="bg-white rounded-xl shadow p-4">
+      <h3 class="text-lg font-semibold text-yellow-600 mb-2">{{ stat.month }}</h3>
+      <div class="flex justify-between text-center">
+        <div class="w-1/2">
+          <p class="text-sm text-gray-600">Hommes</p>
+          <p class="text-xl font-bold text-blue-700">{{ stat.totalMale || 0 }}</p>
+        </div>
+        <div class="w-1/2">
+          <p class="text-sm text-gray-600">Femmes</p>
+          <p class="text-xl font-bold text-pink-600">{{ stat.totalFemale || 0 }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card">
-    <div class="icon">📋</div>
-    <h2>Abonnements</h2>
-    <p>{{ stats.totalAbonnements }}</p>
-  </div>
-  <div class="card">
-    <div class="icon">🔥</div>
-    <h2>Activités</h2>
-    <p>{{ stats.totalActivites }}</p>
-  </div>
+
 </div>

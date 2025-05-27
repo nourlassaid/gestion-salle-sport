@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
+
   constructor(private router: Router) {}
 
-  logout(): void {
-    localStorage.removeItem('admin');
+  logout() {
+    // Supprimer le token ou toute autre donnée liée à l'authentification
+    localStorage.removeItem('token'); // ou sessionStorage selon ton choix
+    // Rediriger vers la page de login
     this.router.navigate(['/login']);
   }
 }

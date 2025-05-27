@@ -1,0 +1,43 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4 py-10">
+  <div *ngIf="coach; else loadingOrNotFound" class="bg-white dark:bg-gray-800 shadow-lg rounded-3xl max-w-md w-full p-8 text-gray-900 dark:text-gray-100">
+    <div class="flex justify-center mb-6">
+      <img 
+        [src]="coach.photo || 'assets/images/default.jpg'" 
+        [alt]="coach.nom + ' ' + coach.prenom" 
+        class="w-40 h-40 rounded-full object-cover border-4 border-yellow-400 shadow-lg"
+      />
+    </div>
+
+    <h1 class="text-4xl font-extrabold text-yellow-400 text-center mb-4">
+      {{ coach.nom }} {{ coach.prenom }}
+    </h1>
+
+    <p class="text-center text-gray-700 dark:text-gray-300 mb-6 italic">
+      {{ coach.specialite }}
+    </p>
+
+    <div class="space-y-4 text-gray-700 dark:text-gray-300">
+      <div>
+        <span class="font-semibold">Téléphone :</span> {{ coach.telephone }}
+      </div>
+      <div>
+        <span class="font-semibold">Description :</span>
+        <p class="mt-1 leading-relaxed">{{ coach.description || "Aucune description disponible." }}</p>
+      </div>
+    </div>
+
+    <div class="mt-10 flex justify-center">
+      <a routerLink="/coaches" 
+         class="inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
+        ← Retour à la liste
+      </a>
+    </div>
+  </div>
+
+  <ng-template #loadingOrNotFound>
+    <div class="text-center text-gray-500 dark:text-gray-400">
+      <p *ngIf="!coach">Chargement des détails du coach...</p>
+      <p *ngIf="coach === null">Coach non trouvé.</p>
+    </div>
+  </ng-template>
+</div>

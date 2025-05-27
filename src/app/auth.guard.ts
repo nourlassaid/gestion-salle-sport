@@ -11,13 +11,12 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean | UrlTree {
-    
+
     const isAdmin = !!localStorage.getItem('admin');
 
     if (isAdmin) {
       return true;
     } else {
-      // Rediriger vers la page de login si l'utilisateur n'est pas connecté
       return this.router.parseUrl('/login');
     }
   }

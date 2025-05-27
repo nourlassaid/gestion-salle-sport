@@ -11,8 +11,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-// import { AdminLayoutComponent } from './admin-layout/admin-layout.component'; // ❌ supprimé si inexistant
-// import { DashboardComponent } from './admin/dashboard/dashboard.component'; // ❌ supprimé si inexistant
 import { AuthGuard } from './auth.guard';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { MembersListComponent } from './members-list/members-list.component';
@@ -26,6 +24,7 @@ import { CoachFormComponent } from './coach-form/coach-form.component';
 import { AddComponent } from './planning/add/add.component';
 import { PlanningImageListComponent } from './planning-image-list/planning-image-list.component';
 import { PlanningUploadComponent } from './planning-upload/planning-upload.component';
+import { PlanningComponent } from './planning/planning.component'; // ✅ Ajout du composant manquant
 import { FactureListComponent } from './facture-list/facture-list.component';
 import { FactureAddComponent } from './facture-add/facture-add.component';
 import { MonthMembersComponent } from './month-members/month-members.component';
@@ -39,9 +38,10 @@ import { AboutComponent } from './about/about.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { CoachesComponent } from './coaches/coaches.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
-import { PlanningComponent } from './planning/planning.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ContactComponent } from './contact/contact.component';
+import { CoachDetailComponent } from './coach-detail/coach-detail.component';
+
 
 
 
@@ -66,9 +66,9 @@ import { ContactComponent } from './contact/contact.component';
     AddComponent,
     PlanningImageListComponent,
     PlanningUploadComponent,
+    PlanningComponent, // ✅ Ici
     FactureListComponent,
-     FactureAddComponent,
-    FactureListComponent,
+    FactureAddComponent,
     MonthMembersComponent,
     AddReceptionComponent,
     ListReceptionsComponent,
@@ -80,18 +80,18 @@ import { ContactComponent } from './contact/contact.component';
     ActivitiesComponent,
     CoachesComponent,
     SubscriptionsComponent,
-    
     InscriptionComponent,
     ContactComponent,
-    
- 
+    CoachDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

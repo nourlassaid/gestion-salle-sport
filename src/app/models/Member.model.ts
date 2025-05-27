@@ -5,7 +5,7 @@ export interface Member {
   telephone: string;
   date_inscription: string;
   prix: number;
-  sexe: string;
+  sexe: 'Homme' | 'Femme';
   enfant: string;
   mois_inscrits?: number; // <== important
 }

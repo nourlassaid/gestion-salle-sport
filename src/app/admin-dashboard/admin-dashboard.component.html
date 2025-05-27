@@ -9,9 +9,9 @@
       POWER<span class="font-light">GYM NEFTA</span>
     </div>
 
-    <div class="w-96">
+     <div class="flex items-center gap-4 w-96">
       <label for="search" class="sr-only">Recherche</label>
-      <div class="relative text-yellow-500 dark:text-yellow-400">
+      <div class="relative flex-1 text-yellow-500 dark:text-yellow-400">
         <input
           id="search"
           type="text"
@@ -20,6 +20,7 @@
         />
         <span class="absolute left-3 top-2.5 pointer-events-none">🔍</span>
       </div>
+      <img src="assets/admin-avatar.png" alt="Admin" class="w-10 h-10 rounded-full border-2 border-white shadow" />
     </div>
   </header>
 
@@ -334,15 +335,8 @@
           </details>
 
           <!-- Logout -->
-          <div class="mt-8">
-            <a
-              href="#"
-              (click)="logout()"
-              class="flex items-center gap-2 px-4 py-2 rounded bg-yellow-400 dark:bg-yellow-600 text-white font-semibold hover:bg-yellow-500 dark:hover:bg-yellow-700 transition"
-            >
-              🚪 Se déconnecter
-            </a>
-          </div>
+         <button (click)="logout()">Déconnexion</button>
+
         </section>
       </div>
     </nav>

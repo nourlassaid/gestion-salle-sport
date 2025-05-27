@@ -84,5 +84,22 @@ router.delete('/:id', (req, res) => {
     res.json({ message: 'Membre supprimé avec succès' });
   });
 });
+// Statistiques : nombre de membres par mois (année et mois)
+router.get('/stats/monthly-members', (req, res) => {
+  const sql = `
+    SELECT DATE_FORMAT(date_inscription, '%Y-%m') AS month, COUNT(*) AS total
+    FROM members
+    GROUP BY month
+    ORDER BY month;
+  `;
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur base de données:', err);
+      return res.status(500).json({ message: 'Erreur serveur' });
+    }
+    res.json(results);
+  });
+});
+
 
 module.exports = router;
