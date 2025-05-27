@@ -1,17 +1,19 @@
 services:
   - type: web
-    name: backend-gymnefta
+    name: gym-backend
     runtime: node
     plan: free
+    region: frankfurt
+    rootDir: backend
     buildCommand: npm install
     startCommand: node app.js
     envVars:
       - key: DB_HOST
-        value: ton_host
+        value: mysql-xxxx.render.com  # à modifier
       - key: DB_USER
-        value: ton_utilisateur
+        value: root                   # à modifier
       - key: DB_PASSWORD
-        value: ton_mot_de_passe
+        value: ton_password_mysql    # à modifier
       - key: DB_NAME
         value: salle_sport_POWERGYMNEFTA
       - key: JWT_SECRET
