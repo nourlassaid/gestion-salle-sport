@@ -1,7 +1,7 @@
 services:
   - type: web
     name: gym-backend
-    runtime: node
+    env: node
     plan: free
     region: frankfurt
     rootDir: backend
@@ -9,11 +9,11 @@ services:
     startCommand: node app.js
     envVars:
       - key: DB_HOST
-        value: mysql-xxxx.render.com  # à modifier
+        value: mysql-xxxxx.render.com  # Remplace par l'adresse réelle Render de ta base
       - key: DB_USER
-        value: root                   # à modifier
+        value: admin
       - key: DB_PASSWORD
-        value: ton_password_mysql    # à modifier
+        value: mot_de_passe
       - key: DB_NAME
         value: salle_sport_POWERGYMNEFTA
       - key: JWT_SECRET
