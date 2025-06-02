@@ -4,17 +4,18 @@ services:
     runtime: node
     plan: free
     region: frankfurt
-    rootDir: backend
-    buildCommand: npm install
-    startCommand: node app.js
+    buildCommand: cd backend && npm install
+    startCommand: node backend/app.js
     envVars:
       - key: DB_HOST
-        value: mysql-xxx.render.com  # ← à remplacer par l’URL de ta base Render
+        value: ton-hôte-mysql
       - key: DB_USER
-        value: admin
+        value: ton-utilisateur
       - key: DB_PASSWORD
-        value: ton_mot_de_passe
+        value: 0000
       - key: DB_NAME
         value: salle_sport_POWERGYMNEFTA
       - key: JWT_SECRET
         value: cle_secrete_super
+      - key: PORT
+        value: 10000
