@@ -1,0 +1,69 @@
+<div class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-xl mt-10">
+
+  <!-- Recherche et Export -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+    <input
+      type="text"
+      placeholder="Rechercher un membre..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+      class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <div class="flex gap-3">
+      <button (click)="exportPDF()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition">
+        📄 Export PDF
+      </button>
+      <button (click)="exportExcel()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition">
+        📊 Export Excel
+      </button>
+    </div>
+  </div>
+
+  <!-- Titre -->
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">
+    Membres du mois : <span class="text-blue-600">{{ monthName }}</span>
+  </h2>
+
+  <!-- Boutons Homme/Femme/Enfant -->
+  <div class="text-center mb-6">
+    <button (click)="setActiveGroup('men')" [class.active]="activeGroup==='men'" class="px-4 py-2 m-1 bg-beige-300 text-white rounded hover:bg-beige-400">
+      👨 Hommes ({{ men.length }})
+    </button>
+    <button (click)="setActiveGroup('women')" [class.active]="activeGroup==='women'" class="px-4 py-2 m-1 bg-beige-300 text-white rounded hover:bg-beige-400">
+      👩 Femmes ({{ women.length }})
+    </button>
+    <button (click)="setActiveGroup('children')" [class.active]="activeGroup==='children'" class="px-4 py-2 m-1 bg-beige-300 text-white rounded hover:bg-beige-400">
+      🧒 Enfants ({{ children.length }})
+    </button>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto rounded-lg shadow">
+    <table class="min-w-full bg-white text-gray-800">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">#</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Nom</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Téléphone</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Date d'inscription</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold uppercase">Prix</th>
+          <th class="px-6 py-3 text-center text-sm font-semibold uppercase">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of displayedMembers; let i = index" class="border-b hover:bg-gray-50 transition">
+          <td class="px-6 py-4 whitespace-nowrap">{{ i + 1 }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.nom }} {{ member.prenom }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.telephone }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.date_inscription | date:'dd/MM/yyyy' }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ member.prix }} DT</td>
+          <td class="px-6 py-4 whitespace-nowrap text-center space-x-2">
+            <button (click)="viewMember(member)" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md transition">👁️</button>
+            <button (click)="editMember(member)" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-3 py-1 rounded-md transition">✏️</button>
+            <button (click)="deleteMember(member)" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md transition">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

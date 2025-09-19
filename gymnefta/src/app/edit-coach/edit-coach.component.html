@@ -1,0 +1,60 @@
+<div class="p-6 bg-gradient-to-br from-yellow-50 to-white min-h-screen">
+  <div class="text-sm text-gray-600 mb-6">
+    Dashboard / <span class="text-gray-900 font-semibold">Modifier un coach</span>
+  </div>
+
+  <div class="bg-white max-w-2xl mx-auto shadow-xl rounded-2xl p-10 border border-gray-200">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-3 flex items-center gap-2">
+      🧑‍🏫 Modifier un coach
+    </h2>
+
+    <form [formGroup]="coachForm" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Nom -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Nom</label>
+        <input type="text" formControlName="nom"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+      </div>
+
+      <!-- Prénom -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Prénom</label>
+        <input type="text" formControlName="prenom"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+      </div>
+
+      <!-- Téléphone -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Téléphone</label>
+        <input type="tel" formControlName="telephone"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+      </div>
+
+      <!-- Spécialité -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Spécialité</label>
+        <input type="text" formControlName="specialite"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+      </div>
+
+      <!-- Sexe -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Sexe</label>
+        <select formControlName="sexe"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+          <option value="" disabled>Choisir sexe</option>
+          <option value="Homme">Homme</option>
+          <option value="Femme">Femme</option>
+        </select>
+      </div>
+
+      <!-- Bouton Modifier -->
+      <div class="col-span-1 md:col-span-2 mt-4">
+        <button type="submit"
+          class="w-full bg-yellow-500 text-white py-3 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition duration-300 shadow-md">
+          💾 Modifier
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

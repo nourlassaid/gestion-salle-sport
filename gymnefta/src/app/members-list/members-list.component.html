@@ -1,0 +1,119 @@
+<!-- 🔍 Barre de recherche -->
+<div class="search-container mb-6 text-center">
+  <input
+    type="text"
+    placeholder="Rechercher un membre..."
+    [(ngModel)]="searchQuery"
+    (input)="onSearchChange()"
+    class="border border-beige-300 rounded px-3 py-2 w-full max-w-md focus:outline-none focus:ring-2 focus:ring-beige-400 bg-beige-50 text-beige-700"
+  />
+</div>
+
+<!-- 📅 Boutons des mois -->
+<div class="months-navigation mb-8 text-center">
+  <h2 class="text-2xl font-bold mb-4 text-beige-700">LISTE DES ADHÉRENTS PAR MOIS</h2>
+  <div class="month-buttons flex flex-wrap justify-center gap-2">
+    <button
+      *ngFor="let month of monthKeys"
+      (click)="goToMonth(month)"
+      class="px-4 py-2 bg-beige-300 text-white rounded hover:bg-beige-400 transition font-semibold"
+    >
+      {{ month }}
+    </button>
+  </div>
+</div>
+
+<!-- 🧍‍♂️ Résultats de recherche -->
+<div *ngIf="searchQuery.trim() !== ''" class="mt-4 text-center">
+  <h3 class="text-xl font-semibold mb-4 text-beige-700">
+    🔍 Résultats pour <span class="text-beige-400">"{{ searchQuery }}"</span>
+    ({{ members.length }} membre{{ members.length > 1 ? 's' : '' }})
+  </h3>
+
+  <!-- 🔘 Aucun résultat -->
+  <p *ngIf="members.length === 0" class="text-beige-500">❌ Aucun membre trouvé.</p>
+</div>
+
+<!-- 🧍 Adultes Hommes -->
+<div *ngIf="men.length > 0" class="mb-6">
+  <h3 class="text-xl font-bold mb-4 text-beige-700 text-center">👨 Hommes</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let member of men" class="bg-beige-50 border border-beige-300 rounded-xl p-4 shadow-md hover:shadow-lg transition">
+      <h4 class="text-lg font-semibold text-beige-700 mb-2 text-center">
+        👤 {{ member.nom }} {{ member.prenom }}
+      </h4>
+      <p class="text-sm text-beige-600 mb-1 text-center">
+        🗓️ Inscrit en <strong>{{ getMonthNameAgo(member.mois_inscrits) }}</strong>
+      </p>
+      <p class="text-sm flex items-center justify-center gap-2 mb-1">
+        <span
+          [ngClass]="{
+            'text-green-600': member.mois_inscrits != null && member.mois_inscrits <= 2,
+            'text-yellow-600': member.mois_inscrits != null && member.mois_inscrits > 2 && member.mois_inscrits <= 6,
+            'text-red-600': member.mois_inscrits != null && member.mois_inscrits > 6
+          }"
+        >
+          ●
+        </span>
+        <span class="text-beige-700">Depuis <strong>{{ member.mois_inscrits ?? 'N/A' }}</strong> mois</span>
+      </p>
+      <p class="text-sm text-beige-700 mb-1 text-center">📞 <strong>{{ member.telephone }}</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- 🧍 Adultes Femmes -->
+<div *ngIf="women.length > 0" class="mb-6">
+  <h3 class="text-xl font-bold mb-4 text-beige-700 text-center">👩 Femmes</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let member of women" class="bg-beige-50 border border-beige-300 rounded-xl p-4 shadow-md hover:shadow-lg transition">
+      <h4 class="text-lg font-semibold text-beige-700 mb-2 text-center">
+        👤 {{ member.nom }} {{ member.prenom }}
+      </h4>
+      <p class="text-sm text-beige-600 mb-1 text-center">
+        🗓️ Inscrit en <strong>{{ getMonthNameAgo(member.mois_inscrits) }}</strong>
+      </p>
+      <p class="text-sm flex items-center justify-center gap-2 mb-1">
+        <span
+          [ngClass]="{
+            'text-green-600': member.mois_inscrits != null && member.mois_inscrits <= 2,
+            'text-yellow-600': member.mois_inscrits != null && member.mois_inscrits > 2 && member.mois_inscrits <= 6,
+            'text-red-600': member.mois_inscrits != null && member.mois_inscrits > 6
+          }"
+        >
+          ●
+        </span>
+        <span class="text-beige-700">Depuis <strong>{{ member.mois_inscrits ?? 'N/A' }}</strong> mois</span>
+      </p>
+      <p class="text-sm text-beige-700 mb-1 text-center">📞 <strong>{{ member.telephone }}</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- 🧒 Enfants -->
+<div *ngIf="children.length > 0" class="mb-6">
+  <h3 class="text-xl font-bold mb-4 text-beige-700 text-center">🧒 Enfants</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let member of children" class="bg-beige-50 border border-beige-300 rounded-xl p-4 shadow-md hover:shadow-lg transition">
+      <h4 class="text-lg font-semibold text-beige-700 mb-2 text-center">
+        👤 {{ member.nom }} {{ member.prenom }}
+      </h4>
+      <p class="text-sm text-beige-600 mb-1 text-center">
+        🗓️ Inscrit en <strong>{{ getMonthNameAgo(member.mois_inscrits) }}</strong>
+      </p>
+      <p class="text-sm flex items-center justify-center gap-2 mb-1">
+        <span
+          [ngClass]="{
+            'text-green-600': member.mois_inscrits != null && member.mois_inscrits <= 2,
+            'text-yellow-600': member.mois_inscrits != null && member.mois_inscrits > 2 && member.mois_inscrits <= 6,
+            'text-red-600': member.mois_inscrits != null && member.mois_inscrits > 6
+          }"
+        >
+          ●
+        </span>
+        <span class="text-beige-700">Depuis <strong>{{ member.mois_inscrits ?? 'N/A' }}</strong> mois</span>
+      </p>
+      <p class="text-sm text-beige-700 mb-1 text-center">📞 <strong>{{ member.telephone }}</strong></p>
+    </div>
+  </div>
+</div>

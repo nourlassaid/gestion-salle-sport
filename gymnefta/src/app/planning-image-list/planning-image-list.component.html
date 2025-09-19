@@ -1,0 +1,19 @@
+<h2 class="text-3xl font-bold text-beige-800 mb-6 text-center">
+  📅 Liste des Plannings
+</h2>
+
+<!-- Aucun planning -->
+<div *ngIf="images.length === 0" 
+     class="text-center text-beige-500 italic bg-beige-50 py-6 px-4 rounded-xl shadow-md">
+  <p>Aucun planning disponible pour le moment.</p>
+</div>
+
+<!-- Grille des plannings -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6" *ngIf="images.length > 0">
+  <div *ngFor="let img of images" 
+       class="bg-white rounded-2xl shadow-lg overflow-hidden border border-beige-200 hover:shadow-xl transition duration-300">
+    <img [src]="'http://localhost:3000' + img" 
+         alt="planning"
+         class="w-full h-64 object-cover" />
+  </div>
+</div>

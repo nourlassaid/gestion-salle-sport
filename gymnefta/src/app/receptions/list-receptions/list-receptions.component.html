@@ -1,0 +1,31 @@
+<app-add-reception (receptionAdded)="onReceptionAdded($event)"></app-add-reception>
+
+<div class="overflow-x-auto mt-8 shadow-lg rounded-xl">
+  <table class="min-w-full bg-beige-50 text-beige-800 text-sm rounded-xl">
+    <thead class="bg-beige-300 text-white">
+      <tr>
+        <th class="px-6 py-3 text-left font-semibold uppercase">Nom</th>
+        <th class="px-6 py-3 text-left font-semibold uppercase">Prénom</th>
+        <th class="px-6 py-3 text-left font-semibold uppercase">Téléphone</th>
+        <th class="px-6 py-3 text-left font-semibold uppercase">Email</th>
+        <th class="px-6 py-3 text-left font-semibold uppercase">Sexe</th>
+        <th class="px-6 py-3 text-center font-semibold uppercase">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of receptionnistes" class="border-b border-beige-300 hover:bg-beige-100 transition">
+        <td class="px-6 py-4">{{ r.nom }}</td>
+        <td class="px-6 py-4">{{ r.prenom }}</td>
+        <td class="px-6 py-4">{{ r.telephone }}</td>
+        <td class="px-6 py-4">{{ r.email }}</td>
+        <td class="px-6 py-4">{{ r.sexe }}</td>
+        <td class="px-6 py-4 text-center">
+          <button (click)="delete(r.id!)"
+                  class="bg-beige-300 hover:bg-beige-400 text-white px-4 py-1 rounded-md text-sm font-medium transition">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

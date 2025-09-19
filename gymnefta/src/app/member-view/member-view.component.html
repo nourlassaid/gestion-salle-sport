@@ -1,0 +1,15 @@
+
+
+<div *ngIf="member">
+  <h2>Détails du membre</h2>
+  <p><strong>Nom :</strong> {{ member.nom }}</p>
+  <p><strong>Prénom :</strong> {{ member.prenom }}</p>
+  <p><strong>Téléphone :</strong> {{ member.telephone }}</p>
+  <p><strong>Date d'inscription :</strong> {{ member.date_inscription }}</p>
+  <p><strong>Prix :</strong> {{ member.prix }} DT</p>
+  <p><strong>Sexe :</strong> {{ member.sexe || 'Non spécifié' }}</p>
+</div>
+
+<div *ngIf="!member">
+  <p>Membre introuvable ou en cours de chargement...</p>
+</div>

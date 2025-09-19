@@ -1,0 +1,10 @@
+<h2>Ajouter plusieurs plannings (images Canva)</h2>
+
+<form (submit)="onSubmit()" enctype="multipart/form-data">
+  <input type="file" (change)="onFileChange($event)" multiple required />
+  <button type="submit">Téléverser</button>
+</form>
+
+<div *ngIf="uploadSuccess">
+  <p style="color: green;">Plannings envoyés avec succès !</p>
+</div>

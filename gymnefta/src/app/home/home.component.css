@@ -1,0 +1,147 @@
+/* HERO */
+.hero {
+  background-image: url('/assets/gym-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  font-family: 'Impact', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: #ffc107;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+  height: 100%;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: #ffc107;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.contact-info a {
+  color: #ffc107;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  animation: fadeIn 1.8s ease-in;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: white;
+}
+
+.hero-text h2 {
+  font-size: 5rem;
+  -webkit-text-stroke: 2px #ffc107;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.hero-text p {
+  font-size: 1.4rem;
+  color: orange;
+  margin-top: 15px;
+  letter-spacing: 3px;
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  background-color: #111;
+  color: white;
+  text-align: center;
+}
+
+section h2 {
+  color: #ffc107;
+  margin-bottom: 20px;
+}
+
+.presentation p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* ACTIVITÉS */
+.activities .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.activity {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ffc107;
+}
+
+/* CALL TO ACTION */
+.cta {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.cta .btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: black;
+  color: #ffc107;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta .btn:hover {
+  background: #222;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

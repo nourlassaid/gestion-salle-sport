@@ -1,0 +1,29 @@
+<div class="max-w-md mx-auto bg-beige-50 p-8 rounded-2xl shadow-lg mt-10">
+  <h2 class="text-3xl font-bold text-beige-800 mb-6 text-center">
+    ➕ Ajouter un abonnement
+  </h2>
+
+  <form [formGroup]="abonnementForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    <!-- Nom -->
+    <input type="text" placeholder="Nom" formControlName="nom"
+           class="w-full px-4 py-2 border border-beige-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-beige-400 bg-white text-beige-800 placeholder-beige-400" />
+
+    <!-- Description -->
+    <textarea placeholder="Description" formControlName="description" rows="3"
+              class="w-full px-4 py-2 border border-beige-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-beige-400 bg-white text-beige-800 placeholder-beige-400"></textarea>
+
+    <!-- Prix -->
+    <input type="number" placeholder="Prix (DT)" formControlName="prix"
+           class="w-full px-4 py-2 border border-beige-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-beige-400 bg-white text-beige-800 placeholder-beige-400" />
+
+    <!-- Durée -->
+    <input type="number" placeholder="Durée (en mois)" formControlName="duree"
+           class="w-full px-4 py-2 border border-beige-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-beige-400 bg-white text-beige-800 placeholder-beige-400" />
+
+    <!-- Bouton -->
+    <button type="submit"
+            class="w-full bg-beige-300 text-white py-3 rounded-lg font-semibold text-lg hover:bg-beige-400 transition duration-300 shadow-md">
+      💾 Ajouter
+    </button>
+  </form>
+</div>

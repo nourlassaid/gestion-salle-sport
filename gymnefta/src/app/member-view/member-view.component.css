@@ -1,0 +1,23 @@
+.member-details {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .member-details h2 {
+    margin-bottom: 16px;
+  }
+  .topbar {
+    background-color: #000000; /* noir */
+    color: #FFD700; /* jaune */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }

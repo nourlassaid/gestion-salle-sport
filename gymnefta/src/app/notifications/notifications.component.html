@@ -1,0 +1,29 @@
+<div class="notifications-container">
+  <h2>🔔 Notifications</h2>
+
+  <div *ngIf="loading">Chargement...</div>
+
+  <ul *ngIf="!loading && notifications.length > 0">
+    <li *ngFor="let notif of notifications" [class.lue]="notif.statut === 'Lue'">
+      <p>{{ notif.message }}</p>
+      <small>{{ notif.created_at | date:'short' }}</small>
+      <button *ngIf="notif.statut === 'Non lue'" (click)="markAsRead(notif.id)">
+        Marquer comme lue
+      </button>
+    </li>
+  </ul>
+
+  <div *ngIf="!loading && notifications.length === 0">
+    ✅ Aucune notification
+  </div>
+
+  <h3 class="mt-6">Membres expirés ce mois</h3>
+  <ul *ngIf="expiredMembers.length > 0">
+    <li *ngFor="let m of expiredMembers">
+      {{ m.nom }} {{ m.prenom }} – Fin abonnement: {{ m.fin_abonnement | date:'dd/MM/yyyy' }}
+    </li>
+  </ul>
+  <div *ngIf="expiredMembers.length === 0">
+    ✅ Aucun membre expiré ce mois
+  </div>
+</div>

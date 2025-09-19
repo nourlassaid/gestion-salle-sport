@@ -1,0 +1,22 @@
+<div class="topbar">
+  <!-- Bouton menu -->
+  <button class="menu-btn" (click)="toggleSidebar()">☰</button>
+
+  <!-- Logo -->
+  <div class="logo">POWER GYM NEFTA</div>
+
+  <!-- Zone de recherche -->
+  <div class="ml-auto">
+    <input
+      [(ngModel)]="searchText"
+      type="text"
+      placeholder="Rechercher un membre..."
+    />
+    <button
+      [routerLink]="['/search']"
+      [queryParams]="{ q: searchText }"
+    >
+      Rechercher
+    </button>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="max-w-4xl mx-auto bg-beige-50 p-6 rounded-2xl shadow-lg mt-10">
+  <h2 class="text-3xl font-bold text-beige-800 mb-6 text-center">
+    📋 Liste des Factures
+  </h2>
+
+  <div class="overflow-x-auto rounded-lg shadow">
+    <table class="min-w-full bg-beige-50 text-beige-800 text-sm">
+      <thead class="bg-beige-300 text-white">
+        <tr>
+          <th class="px-6 py-3 text-left font-semibold uppercase">#</th>
+          <th class="px-6 py-3 text-left font-semibold uppercase">Client</th>
+          <th class="px-6 py-3 text-left font-semibold uppercase">Date</th>
+          <th class="px-6 py-3 text-left font-semibold uppercase">Montant</th>
+          <th class="px-6 py-3 text-left font-semibold uppercase">PDF</th>
+          <th class="px-6 py-3 text-center font-semibold uppercase">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of factures; index as i" class="border-b border-beige-300 hover:bg-beige-100 transition">
+          <td class="px-6 py-4">{{ i + 1 }}</td>
+          <td class="px-6 py-4">{{ f.client }}</td>
+          <td class="px-6 py-4">{{ f.date | date:'dd/MM/yyyy' }}</td>
+          <td class="px-6 py-4">{{ f.montant }} DT</td>
+          <td class="px-6 py-4">
+            <a [href]="'http://localhost:3000' + f.pdf_url" target="_blank" class="text-blue-600 hover:underline">
+              Voir
+            </a>
+          </td>
+          <td class="px-6 py-4 text-center space-x-2">
+            <button
+              (click)="editFacture(f.id)"
+              class="bg-beige-300 hover:bg-beige-400 text-white px-3 py-1 rounded-md transition"
+              title="Modifier"
+            >
+              ✏️
+            </button>
+            <button
+              (click)="deleteFacture(f.id)"
+              class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md transition"
+              title="Supprimer"
+            >
+              🗑️
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

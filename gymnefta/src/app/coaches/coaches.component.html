@@ -1,0 +1,33 @@
+<section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-20">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-12">
+      Nos <span class="text-yellow-400">Entraîneurs</span>
+    </h1>
+
+    <p class="text-center text-lg md:text-xl mb-16 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+      Découvrez notre équipe de coachs passionnés et certifiés, prêts à vous accompagner dans votre transformation physique.
+    </p>
+
+    <div *ngIf="coaches.length === 0" class="text-center text-gray-500 italic">Aucun coach pour le moment.</div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" *ngIf="coaches.length > 0">
+  <div *ngFor="let coach of coaches" 
+       class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center hover:scale-105 transition cursor-pointer"
+       [routerLink]="['/coach', coach.id]">
+    <img [src]="coach.photo || 'assets/images/default.jpg'" alt="{{ coach.nom }}" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover shadow-md" />
+    <h2 class="text-xl font-bold text-yellow-400">{{ coach.nom }} {{ coach.prenom }}</h2>
+    <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">{{ coach.specialite }}</p>
+    <p class="text-gray-600 dark:text-gray-400 text-sm">
+      Téléphone : {{ coach.telephone }}
+    </p>
+  </div>
+</div>
+
+
+    <div class="text-center mt-16">
+      <a routerLink="/contact" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
+        Contacter un coach
+      </a>
+    </div>
+  </div>
+</section>

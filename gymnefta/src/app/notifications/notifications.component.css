@@ -1,0 +1,23 @@
+.notifications-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+}
+
+.notifications-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notifications-container li {
+  margin-bottom: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.notifications-container li.lue {
+  opacity: 0.6;
+}

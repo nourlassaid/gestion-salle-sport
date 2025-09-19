@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: gym-backend
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: cd backend && npm install
+    startCommand: node backend/app.js
+    envVars:
+      - key: DB_HOST
+        value: ton-hôte-mysql
+      - key: DB_USER
+        value: ton-utilisateur
+      - key: DB_PASSWORD
+        value: 0000
+      - key: DB_NAME
+        value: salle_sport_POWERGYMNEFTA
+      - key: JWT_SECRET
+        value: cle_secrete_super
+      - key: PORT
+        value: 10000

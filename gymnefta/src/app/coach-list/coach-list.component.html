@@ -1,0 +1,44 @@
+<div class="coach-list max-w-lg mx-auto bg-beige-50 p-6 rounded-lg shadow-md border border-beige-300">
+  <h2 class="text-4xl font-extrabold text-beige-700 mb-6 text-center">Liste des Coachs</h2>
+  
+  <!-- Message si aucun coach -->
+  <div *ngIf="coaches.length === 0" class="no-coaches-message text-center text-beige-400 italic py-6">
+    <p>Aucun coach trouvé.</p>
+  </div>
+
+  <!-- Liste des coachs -->
+  <ul *ngIf="coaches.length > 0" class="coach-items-list space-y-4">
+    <li *ngFor="let coach of coaches" class="coach-item flex justify-between items-center border border-beige-300 rounded-md p-4 hover:shadow-lg transition bg-beige-50">
+      <div class="coach-info">
+        <p class="coach-name text-lg font-semibold text-beige-700">{{ coach.nom }} {{ coach.prenom }}</p>
+        <p class="coach-specialty text-beige-400 italic">{{ coach.specialite }}</p>
+      </div>
+      <div class="flex space-x-3">
+        <!-- Bouton Supprimer -->
+        <button
+          *ngIf="coach.id !== undefined"
+          (click)="onDelete(coach.id)"
+          class="delete-btn flex items-center space-x-1 text-red-600 hover:text-red-800 font-semibold transition"
+          aria-label="Supprimer coach"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          <span>Supprimer</span>
+        </button>
+
+        <!-- Bouton Modifier -->
+        <button
+          (click)="onEdit(coach)"
+          class="edit-btn flex items-center space-x-1 text-beige-300 hover:text-beige-400 font-semibold transition"
+          aria-label="Modifier coach"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4h10M11 4l-7 7-3 8 8-3 7-7v-5z" />
+          </svg>
+          <span>Modifier</span>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

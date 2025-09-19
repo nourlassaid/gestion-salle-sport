@@ -1,0 +1,19 @@
+<h2>Résultats de recherche pour "{{ query }}"</h2>
+
+<div *ngIf="isLoading">Chargement...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<div *ngIf="!isLoading && members.length > 0; else noResults">
+  <ul>
+    <li *ngFor="let member of members">
+      <strong>{{ member.nom }} {{ member.prenom }}</strong> - {{ member.telephone }}<br />
+      <em>Date d'inscription :</em> {{ member.date_inscription | date: 'dd/MM/yyyy' }}<br />
+      <em>Mois écoulés :</em> {{ member.mois_inscrits }} mois
+      <hr />
+    </li>
+  </ul>
+</div>
+
+<ng-template #noResults>
+  <p>Aucun membre trouvé.</p>
+</ng-template>

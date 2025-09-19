@@ -1,0 +1,39 @@
+<section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-20">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-10">
+      📅 <span class="text-yellow-400">Planning</span> 
+    </h1>
+
+    <p class="text-center text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-12">
+      Retrouvez ci-dessous les créneaux horaires de nos activités hebdomadaires. Cliquez sur une image pour l'agrandir.
+    </p>
+
+    <!-- Alerte si aucun planning -->
+    <div *ngIf="plannings.length === 0" class="text-center text-gray-500 italic">
+      Aucun planning disponible pour le moment.
+    </div>
+
+    <!-- Grille d'affichage des plannings -->
+    <div *ngIf="plannings.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let img of plannings"
+           class="group relative overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+        <img [src]="'http://localhost:3000' + img"
+             alt="Planning hebdomadaire"
+             class="w-full h-72 object-cover rounded-xl border border-gray-200 dark:border-gray-700" />
+        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition duration-300 flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition">
+            Aperçu
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bouton d'inscription -->
+    <div class="text-center mt-16">
+      <a routerLink="/inscription"
+         class="inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-semibold text-lg py-3 px-8 rounded-full shadow-md transition duration-300">
+        S'inscrire à une activité
+      </a>
+    </div>
+  </div>
+</section>
