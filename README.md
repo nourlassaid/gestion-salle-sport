@@ -1,6 +1,6 @@
 # 🏋️‍♂️ Gestion de Salle de Sport - PowerGym
 
-![Logo](src/assets/images/logo.png)
+![Logo](src/images/logo.png)
 
 ## 📌 Description
 Application web de gestion de salle de sport développée avec **Angular**, **Node.js** et **MySQL**.  
